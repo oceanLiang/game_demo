@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <title>咽消云散</title>
+	<meta charset="utf-8">
+    <link href="./css/style.css" rel="stylesheet">
+    <script src="./js/pixi.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/ishoock.tools.js"></script>
+    <script src="./js/jweixin-1.0.0.js"></script>
+    <script>
+        var base = "http://www.wepromo.cn/work/_ywkj/201510/yxys/";
+        var historyScore = GetStorage("yxys_score");
+        var shareText = !historyScore || historyScore == "0" ? "召唤小伙伴，消灭干痛痒！" : "我在咽消云散的游戏中前进了" + parseInt(historyScore) + "米，敢来和我一起挑战吗！";
+        var wxconfig1 = {
+            title: shareText,
+            link: base,
+            imgUrl: base + "image/share.jpg"
+        };
+        var wxconfig2 = {
+            title: '咽消云散',
+            desc: shareText,
+            link: base,
+            imgUrl: base + "image/share.jpg"
+        };
+
+        var uri = location.href.split("#")[0];
+        var path = uri.split("?")[0];
+        var query = uri.split("?")[1];
+        uri = path + (query ? ("?" + encodeURI(query)) : "");
+
+/*
+        $.post("http://www.wepromo.cn/wechathandler/wepromo/", {
+            uri: uri
+        }, function (data) {
+            data = eval("(" + data + ")");
+            var apilist = [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
+            ];
+            wx.config({
+                debug: false,
+                appId: data.appid,
+                timestamp: data.timestamp,
+                nonceStr: data.noncestr,
+                signature: data.signature,
+                jsApiList: apilist
+            });
+            wx.error(function (res) {
+                alert(JSON.stringify(res));
+            });
+        });
+        wx.ready(function () {
+            wx.onMenuShareTimeline(wxconfig1);
+            wx.onMenuShareAppMessage(wxconfig2);
+        });
+
+*/
+        var load = new Load(function (par) {
+            var p = parseInt(par * 100);
+            var _par = document.getElementById("par");
+            var _100 = _par.children[0];
+            var _10 = _par.children[1];
+            var _1 = _par.children[2];
+            if (p >= 100) {
+                _100.style.display = "inline-block";
+            } else if (p>=10) {
+                _10.style.display = "inline-block";
+            }
+            var tmp = p + 1000+"";
+            var num = tmp.split("");
+            _100.style.backgroundPositionY = -(num[1] * 30) + "px";
+            _10.style.backgroundPositionY = -(num[2] * 30) + "px";
+            _1.style.backgroundPositionY = -(num[3] * 30) + "px";
+            var progress = document.getElementById("loading_progress");
+            progress.children[0].style.width = par * 112.5+"px";
+        }, Init, [
+            "image/arrow.png",
+            "image/bg.jpg",
+            "image/boow1.png",
+            "image/boow2.png",
+            "image/boow3.png",
+            "image/boow4.png",
+            "image/cloud1.png",
+            "image/cloud1_2.png",
+            "image/cloud2.png",
+            "image/cloud2_2.png",
+            "image/cloud3.png",
+            "image/cloud3_2.png",
+            "image/cloud4.png",
+            "image/cloud4_2.png",
+            "image/cloud5.png",
+            "image/cloud5_2.png",
+            "image/combo1.png",
+            "image/combo2.png",
+            "image/combo3.png",
+            "image/combo4.png",
+            "image/DT.Ning.png",
+            "image/finger.png",
+            "image/gameover.png",
+            "image/hourglass.png",
+            "image/jumpcloud.png",
+            "image/m.png",
+            "image/num.png",
+            "image/num2.png",
+            "image/p0_bg.jpg",
+            "image/p0_cloud.png",
+            "image/p0_fire.png",
+            "image/p0_num.png",
+            "image/p0_par.png",
+            "image/p0_progressbg.png",
+            "image/p0_progressvalue.png",
+            "image/p0_rocket.png",
+            "image/p1_bg.jpg",
+            "image/p1_cloud1.png",
+            "image/p1_cloud2.png",
+            "image/p1_DT.Ning.png",
+            "image/p1_go.png",
+            "image/p1_logo.png",
+            "image/p1_m1.png",
+            "image/p1_m2.png",
+            "image/p1_m3.png",
+            "image/p1_m4.png",
+            "image/p1_m5.png",
+            "image/p1_moon.png",
+            "image/p1_rocket.png",
+            "image/p1_sign1.png",
+            "image/p1_sign2.png",
+            "image/p1_sign3.png",
+            "image/p1_sign4.png",
+            "image/p1_start.png",
+            "image/p1_stone.png",
+            "image/p1_sun.png",
+            "image/p1_text.png",
+            "image/p1_title.png",
+            "image/p3_btn1.png",
+            "image/p3_btn2.png",
+            "image/p3_line.png",
+            "image/p3_m.png",
+            "image/p3_num1.png",
+            "image/p3_num2.png",
+            "image/p3_sun.png",
+            "image/p3_text1.png",
+            "image/p3_text2.png",
+            "image/p3_text3.png",
+            "image/p3_text4.png",
+            "image/p3_title.png",
+            "image/progressbg.png",
+            "image/progressvalue.png",
+            "image/share.jpg",
+            "image/share.png",
+            "image/star.png",
+            "image/super.png",
+            "image/time.png",
+            "image/timeup.png",
+            "image/tips.png",
+            "image/tree.png",
+            "image/on.png",
+            "image/off.png",
+            "image/mysn.png"
+        ], 42, false);
+
+        onload = load.Start;
+        var game = new PIXI.Container();
+        var renderer;
+        var WIDTH, HEIGHT;
+        var SCALE;
+
+        var baseValue = 2;
+        var spring = {
+            "start": { speed: 12 * baseValue, limit: 300 * baseValue, deep: 30 * baseValue, top: 5},
+            "cloud": { speed: 6 * baseValue, limit: 150 * baseValue, top: 10},
+            "super": { speed: 18 * baseValue, limit: 1500 * baseValue, top: 10},
+            "down": { speed: 6 * baseValue }
+        };
+        var bg;
+        var man;
+        var tree1, tree1;
+        var jumpcloud;
+        var score = 0;
+        var SCORE = 0;
+        var combo = { type: -1, count: 0 };
+        var clouds = [];
+        var _cloudy = 0;
+
+        var bgm = new Audio();
+        bgm.loop = true;
+        bgm.src = "audio/bgm.mp3";
+
+        var gamem = new Audio();
+        gamem.loop = true;
+        gamem.src = "audio/gamem.mp3";
+
+        function Init() {
+            try { bgm.play(); $("#bgm_btn").attr("class", "on"); } catch (e) { $("bgm_btn").attr("class", "off"); }
+            $("#bgm_btn,#start,#replay,#link").on("touchstart", function () {
+                event.stopPropagation();
+            });
+
+            $("#bgm_btn").on("click", function () {
+                if (this.className == "on") {
+                    gamem.pause();
+                    bgm.pause();
+                    $("#bgm_btn").attr("class", "off");
+                } else {
+                    if (start) {
+                        gamem.play();
+                        bgm.pause();
+                    } else {
+                        bgm.play();
+                        gamem.pause();
+                    }
+                    $("#bgm_btn").attr("class", "on");
+                }
+            });
+            $("#link").on("click",function(){
+                //location.href = "http://www.baidu.com";
+                location.href="http://www.guilong.com.cn/wx/jump.php?wx_jump_menu=8";
+            });
+            $("#loading").addClass("out");
+            $("#p1").addClass("in");
+
+            setTimeout(function () {
+                $("#loading").remove();
+            }, 1000);
+
+            $("#start").on("click", function () {
+                $("#p1").addClass("out");
+                setTimeout(function () {
+                    $("#p1").remove();
+                    $("#tips").on("touchmove", function () {
+                        if (!$("#tips").hasClass("out")) {
+                            $("#tips").addClass("out");
+                            setTimeout(function () {
+                                if (!start) {
+                                    start = true;
+                                }
+                            }, 500);
+                        }
+                    });
+                }, 1000);
+                if ($("#bgm_btn").hasClass("on")) {
+                    bgm.pause();
+                    gamem.play();
+                }
+            });
+
+            $("#replay").on("click", Replay);
+
+            WIDTH = document.body.clientWidth * 2;
+            HEIGHT = document.body.clientHeight * 2;
+            SCALE = WIDTH / 750;
+            renderer = PIXI.autoDetectRenderer(WIDTH, HEIGHT, { transparent: true, view: document.getElementById("game") });
+
+            bgTexture = PIXI.Texture.fromImage("image/bg.jpg");
+            treeTexture = PIXI.Texture.fromImage("image/tree.png");
+            jumpcloudTexture = PIXI.Texture.fromImage("image/jumpcloud.png");
+            cloudTexture = [
+                PIXI.Texture.fromImage("image/cloud1.png"),
+                PIXI.Texture.fromImage("image/cloud2.png"),
+                PIXI.Texture.fromImage("image/cloud3.png"),
+                PIXI.Texture.fromImage("image/cloud4.png"),
+                PIXI.Texture.fromImage("image/cloud5.png")
+            ];
+            cloudDieTexture = [
+                PIXI.Texture.fromImage("image/cloud1_2.png"),
+                PIXI.Texture.fromImage("image/cloud2_2.png"),
+                PIXI.Texture.fromImage("image/cloud3_2.png"),
+                PIXI.Texture.fromImage("image/cloud4_2.png"),
+                PIXI.Texture.fromImage("image/cloud5_2.png")
+            ];
+            manTexture = PIXI.Texture.fromImage("image/DT.Ning.png");
+            boowTexture = [
+                PIXI.Texture.fromImage("image/boow1.png"),
+                PIXI.Texture.fromImage("image/boow2.png"),
+                PIXI.Texture.fromImage("image/boow3.png"),
+                PIXI.Texture.fromImage("image/boow4.png")
+            ];
+            comboTextue = [
+                PIXI.Texture.fromImage("image/combo1.png"),
+                PIXI.Texture.fromImage("image/combo2.png"),
+                PIXI.Texture.fromImage("image/combo3.png"),
+                PIXI.Texture.fromImage("image/combo4.png")
+            ];
+            superTextue = PIXI.Texture.fromImage("image/super.png");
+
+            CreateScene();
+            CreateMan();
+            CreateCloud(true);
+
+            requestAnimationFrame(redraw);
+
+            document.getElementById("p2").addEventListener("touchstart", TouchStart);
+            document.getElementById("p2").addEventListener("touchmove", TouchMove);
+        }
+        function CreateScene() {
+            bg = new PIXI.Sprite(bgTexture, 750, 3276);
+            bg.scale.x = SCALE;
+            bg.scale.y = SCALE;
+            bg.position.y = -(3276 * SCALE - HEIGHT);
+            bg.start = bg.position.y;
+            game.addChild(bg);
+
+            tree1 = new PIXI.extras.TilingSprite(treeTexture, 109, HEIGHT);
+            tree2 = new PIXI.extras.TilingSprite(treeTexture, 102, HEIGHT);
+            tree2.position.x = WIDTH - tree2.width;
+            tree2.tilePosition.x = tree1.width;
+            game.addChild(tree1);
+            game.addChild(tree2);
+
+            jumpcloud = new PIXI.extras.TilingSprite(jumpcloudTexture, 632, 93);
+            jumpcloud.position.x = (WIDTH - jumpcloud.width) / 2;
+            jumpcloud.originY = HEIGHT - jumpcloud.height - 40;
+            jumpcloud.position.y = jumpcloud.originY;
+            jumpcloud.status = "down";
+            game.addChild(jumpcloud);
+        }
+        
+        function CreateMan() {
+            var w = 120;
+            var h = 206.5;
+            man = new PIXI.extras.TilingSprite(manTexture, w, h);
+            man.position.x = WIDTH / 2 - (man.width/2);
+            man.position.y = HEIGHT - man.height - jumpcloud.height - 80;
+            man.center = man.position.x + (man.width / 2);
+            
+            man.direction = "left";
+            man.bottom = function(){
+                return man.position.y + man.height + 8;
+            }
+            man.jumpstatus = "down";
+            man.jumpheight = 0;
+            man.jumpspeed = spring.start.speed;
+            game.addChild(man);
+        }
+
+        function Replay() {
+            if (!start) {
+                bg.position.y = -(3276 * SCALE - HEIGHT);
+
+                jumpcloud = new PIXI.extras.TilingSprite(jumpcloudTexture, 632, 93);
+                jumpcloud.position.x = (WIDTH - jumpcloud.width) / 2;
+                jumpcloud.originY = HEIGHT - jumpcloud.height - 40;
+                jumpcloud.position.y = jumpcloud.originY;
+                jumpcloud.status = "down";
+                game.addChild(jumpcloud);
+
+                man.jumpstatus = "down";
+                man.jumpheight = 0;
+                man.jumpspeed = spring.start.speed;
+                man.position.x = WIDTH / 2 - (man.width / 2);
+                man.position.y = HEIGHT - man.height - jumpcloud.height - 80;
+                man.center = man.position.x + (man.width / 2);
+
+                for (var i = 0; i < clouds.length ; i++) {
+                    game.removeChild(clouds[i]);
+                }
+                clouds = [];
+            
+                CreateCloud(true);
+
+                score = 0;
+                SCORE = 0;
+                timestamp = 0;
+                _score = 0;
+                countdown = 60;
+                starttime = 0;
+                combo = { type: -1, count: 0 };
+
+                $("#p2 .num").css("background-position", "0 0 ");
+                $("#progress .value").css("width", "326px");
+                $("#tips").removeClass("out");
+                $("#over").removeClass("timeup").removeClass("gameover");
+                $("#p3").removeClass("over");
+
+                $("#bgm_btn").removeAttr("style");
+
+                if ($("#bgm_btn").hasClass("on")) {
+                    bgm.pause();
+                    gamem.play();
+                }
+            }
+        }
+
+        var continuous = {
+            type: -1,
+            x:0,
+            max:1,
+            count: 1,
+            created:1
+        };
+        function CreateCloud(init) {
+            var _y;
+            var _type;
+            var _index = clouds.length;
+            var _x = 0;
+            var w = 114;
+            var h = 97;
+            var isContinuous = false;
+
+            if (continuous.max > continuous.created) {
+                _type = continuous.type;
+                _x = continuous.x;
+                continuous.created++;
+                isContinuous = true;
+            } else {
+                _type = parseInt(Math.random() * 5);
+                if (_type == continuous.type) {
+                    _type = _type + 1 == 5 ? 0 : _type + 1;
+                }
+                _x = tree1.width - 40 + (Math.random() * (WIDTH + 80 - tree1.width - tree2.width - w));
+                var random = Math.random() * 400;
+                if (random <= 30) {
+                    continuous.x = _x;
+                    continuous.type = _type;
+                    isContinuous = true;
+
+                    if (random < 4) {
+                        continuous.max = 5;
+                    } else if (random < 10) {
+                        continuous.max = 4;
+                    } else if (random < 20) {
+                        continuous.max = 3;
+                    } else {
+                        continuous.max = 2;
+                    }
+                } else {
+                    continuous = {
+                        type: -1,
+                        x: 0,
+                        max: 1,
+                        count: 1,
+                        created:1
+                    }
+                }
+            }
+
+            if (_index == 0) {
+                _y = HEIGHT - 400;
+            } else {
+                _y = init ? _cloudy : clouds[_index - 1].position.y - (25 + clouds[_index - 1].height);
+            }
+            _cloudy = _y - (20 + h);
+            clouds[_index] = new PIXI.Sprite(cloudTexture[_type], w, h);
+            clouds[_index].position.x = _x;
+            clouds[_index].position.y = _y;
+            clouds[_index].status = "live";
+            clouds[_index].type = _type;
+            clouds[_index].name = "cloud";
+            clouds[_index].isContinuous = isContinuous;
+            game.addChildAt(clouds[_index], game.children.length - 3);
+
+            if (init && _cloudy > -400) {
+                CreateCloud(init);
+            }
+        }
+
+        function CreateBoOW(type, x, y, boOWCount, isSpuer) {
+            if (!isSpuer) {
+                var w = 114;
+                var h = 97;
+                var cloud = new PIXI.Sprite(cloudDieTexture[type], w, h);
+                cloud.position.x = x - (w / 2);
+                cloud.position.y = y - (h / 2);
+                cloud.name = "deadcloud";
+                game.addChildAt(cloud, game.children.length - 3);
+            }
+
+            type = type == 4 ? 0 : type;
+            for (var i = 0; i < boOWCount; i++) {
+                var _scale = parseInt((Math.random() * .7 + .3) * 10) / 10;
+                var w = 68;
+                var h = 62;
+                var boow = new PIXI.Sprite(boowTexture[type], w, h);
+                boow.scale.x = _scale;
+                boow.scale.y = _scale;
+                boow.position.x = x - (w / 2);
+                boow.position.y = y - (h / 2);
+                boow.limit = boow.position.y - (Math.random() * 60 + 80);
+                boow.speed = {
+                    x: Math.random() * 10+1,
+                    y:5 + Math.random() * 10
+                };
+                boow.name = "boow";
+                boow.left = Math.random() >= .5 ? true : false;
+                game.addChildAt(boow, game.children.length - 3);
+            }
+        }
+
+        function CreateCombo(count, x, y) {
+            if (count==5) {
+                var _super = new PIXI.Sprite(superTextue, 233, 74);
+                _super.position.x = (WIDTH - _super.width) / 2;
+                _super.position.y = (HEIGHT - _super.height) / 2;
+                _super.hold = 30;
+                _super.name = "super";
+                game.addChild(_super);
+            }
+            var w = 174;
+            var h = 136;
+            var type = count - 2;
+            var _combo = new PIXI.Sprite(comboTextue[type], w, h);
+            _combo.position.x = x - (w / 2);
+            _combo.position.y = y - (h / 2);
+            _combo.name = "combo";
+            _combo.left = Math.random() < .5 ? -1 : 1;
+            _combo.random = Math.random();
+            game.addChildAt(_combo, game.children.length - 3);
+        }
+
+        function Jump() {
+            //处理弹跳状态
+            switch (man.jumpstatus) {
+                case "down":
+                    man.position.y += spring.down.speed;
+                    var _bottom = man.bottom();
+                    if (jumpcloud && _bottom >= jumpcloud.position.y + 20) {
+                        man.jumpstatus = "ready";
+                        man.jumpheight = spring.start.deep;
+                        man.jumpspeed = spring.start.speed;
+                    } else if (man.position.y > HEIGHT) {
+                        man.jumpstatus = "die";
+                        start = false;
+                        $("#over").addClass("gameover");
+                        setTimeout(Result, 100);
+                    } else {
+                        Hit();
+                    }
+                    break;
+                case "ready":
+                    if (man.jumpheight >= 0) {
+                        man.position.y += man.jumpspeed;
+                        man.jumpheight -= man.jumpspeed;
+                        jumpcloud.position.y += man.jumpspeed * 1.2;
+                    } else {
+                        man.jumpheight = spring.start.limit;
+                        man.jumpstatus = "up";
+                        jumpcloud.status = "back";
+                    }
+                    break;
+                case "up":
+                    if (man.jumpheight >= 0) {
+                        man.jumpheight -= man.jumpspeed;
+                        var _bottom = man.bottom();
+                        if (_bottom < HEIGHT / 2 - (man.height / 2)) {
+                            for (var i = 0; i < clouds.length; i++) {
+                                clouds[i].position.y += man.jumpspeed;
+                            }
+                            if (clouds[0].position.y > HEIGHT) {
+                                game.removeChild(clouds[0]);
+                                clouds = clouds.slice(1, clouds.length);
+                                CreateCloud();
+                            }
+                            if (bg.position.y < 0) {
+                                bg.position.y += .5;
+                            }
+                            score += man.jumpspeed;
+                            tree1.tilePosition.y += 5;
+                            tree2.tilePosition.y += 5;
+                            if (jumpcloud) {
+                                jumpcloud.position.y += 2;
+                                jumpcloud.originY += 2;
+                                if (jumpcloud.originY >= HEIGHT) {
+                                    game.removeChild(jumpcloud);
+                                    jumpcloud = null;
+                                    delete jumpcloud;
+                                }
+                            }
+                        } else {
+                            if (score < HEIGHT / 2) {
+                                score += man.jumpspeed;
+                            }
+                            man.position.y -= man.jumpspeed;
+                        }
+                    } else {
+                        man.jumpheight = spring.start.top;
+                        man.jumpspeed = spring.down.speed;
+                        man.jumpstatus = "top";
+                    }
+                    break;
+                case "top":
+                    if (man.jumpheight >= 0) {
+                        man.jumpheight--;
+                        man.position.y += 1 & baseValue;
+                    } else {
+                        man.jumpstatus = "down";
+                        multiple = 1;
+                    }
+                    break;
+            }
+            //设置方向
+            if (man.direction == "left" && man.jumpstatus == "down") {
+                man.tilePosition.x = 0;
+                man.tilePosition.y = 0;
+            } else if (man.direction == "right" && man.jumpstatus == "down") {
+                man.tilePosition.x = man.width;
+                man.tilePosition.y = 0;
+            } else if (man.direction == "left" && man.jumpstatus == "up") {
+                man.tilePosition.x = 0;
+                man.tilePosition.y = man.height;
+            } else if (man.direction == "right" && man.jumpstatus == "up") {
+                man.tilePosition.x = man.width;
+                man.tilePosition.y = man.height;
+            }
+            //设置安全云归位置
+            if (jumpcloud && jumpcloud.status == "back") {
+                jumpcloud.position.y -= (spring.start.speed);
+                if (jumpcloud.position.y <= jumpcloud.originY) {
+                    jumpcloud.status = "down";
+                }
+            }
+        }
+
+        var multiple = 1;
+        function Hit() {
+            for (var i = 0; i < clouds.length ; i++) {
+                var _y = man.bottom();
+                var _x = man.position.x+(man.width/2);
+                var _Y = _y >= clouds[i].position.y+40 && _y < clouds[i].position.y + clouds[i].height;
+                var _X = _x > clouds[i].position.x-10 && _x < clouds[i].position.x + clouds[i].width+10;
+                if (_Y && _X && clouds[i].status == "live") {
+                    man.jumpspeed = spring.cloud.speed;
+                    man.jumpheight = spring.cloud.limit;
+                    if (combo.type == clouds[i].type) {
+                        combo.count++;
+                        CreateCombo(combo.count, clouds[i].position.x + (clouds[i].width / 2), clouds[i].position.y + (clouds[i].height / 2));
+                        if (combo.count == 5) {
+                            man.jumpspeed = spring.super.speed;
+                            man.jumpheight = spring.super.limit;
+                            combo.count = 0;
+                            combo.type +="s";
+                            man.jumpstatus = "up";
+                            multiple = 1;
+                        }
+                    } else {
+                        combo.type = clouds[i].type;
+                        combo.count = 1;
+                        multiple = 1;
+                    }
+
+                    if (clouds[i].isContinuous && man.jumpstatus != "up") {
+                        if (clouds[i - 1] && clouds[i - 1].status == "live" && clouds[i - 1].type == clouds[i].type && clouds[i - 1].isContinuous) {
+                            multiple++;
+                        } else {
+                            if (multiple>1) {
+                                man.jumpspeed = spring.cloud.speed * 2;
+                                man.jumpheight = spring.cloud.limit * multiple;
+                            }
+                            man.jumpstatus = "up";
+                            multiple = 1;
+                        }
+                    } else {
+                        multiple = 1;
+                        man.jumpstatus = "up";
+                    }
+                    
+                    clouds[i].status = "die";
+                    clouds[i].alpha = 0;
+                    CreateBoOW(clouds[i].type, clouds[i].position.x + (clouds[i].width / 2), clouds[i].position.y + (clouds[i].height / 2),10);
+                }
+            }
+        }
+        var timestamp=0;
+        var _score = 0;
+        function redraw() {
+            var now = new Date().getTime();
+            if (timestamp - now < -40) {
+                    timestamp = now;
+                    SCORE = parseInt(score / baseValue / 10);
+                    if (_score < SCORE) {
+                        if (SCORE - _score > 10) {
+                            _score += 10;
+                        } else {
+                            _score += 1;
+                        }
+                        SetScore(_score);
+                    }
+                }
+            if (start) {
+                CountDown(now);
+                Jump();
+            }
+            for (var i = 0; i < game.children.length; i++) {
+                if (game.children[i].name) {
+                    switch (game.children[i].name) {
+                        case "deadcloud":
+                            var _cloud = game.children[i];
+                            if (_cloud.alpha > 0) {
+                                _cloud.alpha -= .1;
+                            } else {
+                                game.removeChild(_cloud);
+                            }
+                            break;
+                        case "combo":
+                            var _combo = game.children[i];
+                            if (_combo.alpha > 0) {
+                                _combo.alpha -= _combo.alpha>.7?.01:.02;
+                                _combo.rotation -= .01;
+                                _combo.position.x += _combo.left * baseValue;
+                                _combo.position.y -=  baseValue;
+                            } else {
+                                game.removeChild(_combo);
+                            }
+                        break;
+                        case "boow":
+                            var _boOW = game.children[i];
+                            if (_boOW.limit != -1 && _boOW.position.y > _boOW.limit) {
+                                _boOW.position.y -= _boOW.speed.y;
+                                _boOW.position.x -= _boOW.left ? -_boOW.speed.x : _boOW.speed.x;
+                            } else {
+                                _boOW.limit = -1;
+                                _boOW.position.y += _boOW.speed.y;
+                                _boOW.position.x -= _boOW.left ? -_boOW.speed.x : _boOW.speed.x;
+                            }
+                            if (_boOW.position.x > WIDTH || _boOW.position.x <= -_boOW.width || _boOW.position.y > HEIGHT) {
+                                game.removeChild(_boOW);
+                            }
+                        break;
+                        case "super":
+                            var _super = game.children[i];
+                            if (_super.hold > 0) {
+                                _super.hold--;
+                                _super.step = 0;
+                            } else {
+                                if (_super.position.y > -_super.height) {
+                                    _super.position.y -= spring.down.speed*.5;
+                                    if (++_super.step%2==0) {
+                                        CreateBoOW(combo.type.replace("s", ""), (WIDTH - _super.width) / 2 + (Math.random() * _super.width), _super.position.y+_super.height, 2,true);
+                                    }
+                                } else {
+                                    game.removeChild(_super);
+                                }
+                            }
+                        break;
+                    }
+                }
+            }
+            renderer.render(game);
+            requestAnimationFrame(redraw);
+        }
+        var countdown = 60;
+        var starttime = 0;
+        var start = false;
+        function CountDown(now) {
+            if (countdown > 0) {
+                if ((now - starttime) >= 1000) {
+                    starttime = now;
+                    countdown--;
+                    var _tmp = 100 + countdown + "";
+                    var _num = _tmp.split("");
+                    var _time = document.getElementById("time");
+                    _time.children[0].style.backgroundPositionY = -(_num[1] * 18) + "px";
+                    _time.children[1].style.backgroundPositionY = -(_num[2] * 18) + "px";
+                    var _progress = document.getElementById("progress").children[0];
+                    _progress.style.width = (countdown / 60) * 326 + "px";
+                }
+            } else {
+                start = false;
+                $("#over").addClass("timeup");
+                setTimeout(Result,100);
+            }
+        }
+        function SetScore(s) {
+            s = s>9999?9999:s;
+            var _tmp = (10000 + s).toString();
+            var _num = _tmp.split("");
+            var _s = document.getElementById("score");
+            _s.children[0].style.backgroundPositionY = -(_num[1] * 19)+"px";
+            _s.children[1].style.backgroundPositionY = -(_num[2] * 19)+"px";
+            _s.children[2].style.backgroundPositionY = -(_num[3] * 19)+"px";
+            _s.children[3].style.backgroundPositionY = -(_num[4] * 19)+"px";
+        }
+        function Result() {
+            $("#bgm_btn").css("left", "10px");
+            if ($("#bgm_btn").hasClass("on")) {
+                gamem.pause();
+                bgm.play();
+            }
+
+            $("#p3").addClass("over");
+            var s = GetStorage("yxys_score");
+            s = s ? parseInt(s) : 0;
+            if (SCORE > s) {
+                s = SCORE;
+                SetStorage("yxys_score", s);
+                $("#p3").addClass("high");
+            } else {
+                $("#p3").removeClass("high");
+            }
+
+            shareText = "我在咽消云散的游戏中前进了" + s + "米，敢来和我一起挑战吗！";
+            wxconfig1.title = shareText;
+            wxconfig2.desc = shareText;
+
+            var tmp = 10000 + SCORE+"";
+            var num = tmp.split("");
+            if (SCORE <= 1000) {
+                $("#p3 .score .value-1000").hide();
+            } else {
+                $("#p3 .score .value-1000").css({ "display": "inline-block", "background-position": "0 -" + 41 * num[1] + "px" });
+            }
+            if (SCORE <= 100) {
+                $("#p3 .score .value-100").hide();
+            } else {
+                $("#p3 .score .value-100").css({ "display": "inline-block", "background-position": "0 -" + 41 * num[2] + "px" });
+            }
+            if (SCORE <= 10) {
+                $("#p3 .score .value-10").hide();
+            } else {
+                $("#p3 .score .value-10").css({ "display": "inline-block", "background-position": "0 -" + 41 * num[3] + "px" });
+            }
+            $("#p3 .score .value-1").css({ "display": "inline-block", "background-position": "0 -" + 41 * num[4] + "px" });
+
+            tmp = (10000 + s) + "";
+            num = tmp.split("");
+            if (s <= 1000) {
+                $("#p3 .history .value-1000").hide();
+            } else {
+                $("#p3 .history .value-1000").css({ "display": "inline-block", "background-position": "0 -" + 16 * num[1] + "px" });
+            }
+            if (s <= 100) {
+                $("#p3 .history .value-100").hide();
+            } else {
+                $("#p3 .history .value-100").css({ "display": "inline-block", "background-position": "0 -" + 16 * num[2] + "px" });
+            }
+            if (s <= 10) {
+                $("#p3 .history .value-10").hide();
+            } else {
+                $("#p3 .history .value-10").css({ "display": "inline-block", "background-position": "0 -" + 16 * num[3] + "px" });
+            }
+            $("#p3 .history .value-1").css({ "display": "inline-block", "background-position": "0 -" + 16 * num[4] + "px" });
+        }
+
+        var touchX;
+        function TouchStart(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            touchX = event.touches[0].clientX;
+        }
+        function TouchMove(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            var _touchX = event.touches[0].clientX;
+            var _move = _touchX - touchX;
+            var _x = man.position.x + (_move*baseValue);
+            touchX = _touchX;
+                if (man.jumplevel !="ready") {
+                if (_x > tree1.width - 80 && _x < WIDTH  - man.width - tree1.width + 80) {
+                    man.position.x = _x;
+                } else if (_x < tree1.width - 80) {
+                    man.position.x = tree1.width - 80;
+                } else if (_x > WIDTH - man.width - tree1.width + 80) {
+                    man.position.x = WIDTH - man.width - tree1.width + 80;
+                }
+                if (_move < 0) {
+                    man.direction = "left";
+                } else if (_move > 0) {
+                    man.direction = "right";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="loading">
+        <div class="scale">
+            <div id="rocket" class="center">
+                <div class="fire center-x"></div>
+            </div>
+            <div id="par" class="center">
+                <div class="num value-100"></div>
+                <div class="num value-10"></div>
+                <div class="num value-1"></div>
+                <div class="par"></div>
+            </div>
+            <div id="loading_progress" class="center">
+                <div class="value"></div>
+            </div>
+            <div class="clouds center">
+                <div class="cloud cloud1"></div>
+                <div class="cloud cloud2"></div>
+                <div class="cloud cloud3"></div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="p2">
+        <canvas id="game" width="2526" height="1426"></canvas>
+        <div class="scale-top-left">
+            <div id="score">
+                <div class="num value-1000"></div>
+                <div class="num value-100"></div>
+                <div class="num value-10"></div>
+                <div class="num value-1"></div>
+                <div class="m"></div>
+            </div>
+        </div>
+        <div class="scale-bottom">
+            <div id="hourglass">
+                <div id="time">
+                    <div class="num value-10"></div>
+                    <div class="num value-1"></div>
+                </div>
+            </div>
+            <div id="progress" class="center-x">
+                <div class="value"></div>
+            </div>
+        </div>
+        <div id="over"></div>
+        <div id="tips">
+            <div class="arrow center"></div>
+            <div class="finger center"></div>
+            <div class="text center"></div>
+        </div>
+    </div>
+    <div id="p3">
+        <div class="scale-top-right">
+            <div class="share"></div>
+        </div>
+        <div class="scale-bottom-right">
+            <div class="mysn"></div>
+        </div>
+        <div class="scale">
+            <div class="sun center">
+                <div class="title center-x"></div>
+                <div class="star star1"></div>
+                <div class="text1 center-x"></div>
+                <div class="star star2"></div>
+                <div class="score">
+                    <div class="num value-1000"></div>
+                    <div class="num value-100"></div>
+                    <div class="num value-10"></div>
+                    <div class="num value-1"></div>
+                    <div class="m"></div>
+                </div>
+                <div class="line1 center-x"></div>
+                <div class="history">
+                    <div class="text"></div>
+                    <div class="star"></div>
+                    <div class="num value-1000"></div>
+                    <div class="num value-100"></div>
+                    <div class="num value-10"></div>
+                    <div class="num value-1"></div>
+                    <div class="m"></div>
+                </div>
+                <div id="replay" class="center-x">&nbsp;</div>
+                <div class="line2 center-x"></div>
+                <div id="link" class="center-x">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div id="p1" class="in">
+        <div class="scale">
+            <div id="sun" class="center-y">
+                <div id="title"></div>
+                <div id="minirocket"></div>
+                <div class="cloud1"></div>
+                <div class="cloud2"></div>
+            </div>
+        </div>
+        <div class="scale-top-left">
+            <div id="logo"></div>
+        </div>
+        <div id="moon"></div>
+        <div class="scale">
+            <div id="land" class="center">
+                <div id="monster1"></div>
+                <div id="monster2"></div>
+                <div id="monster3"></div>
+                <div id="monster4"></div>
+                <div id="monster5"></div>
+                <div id="DTNning"></div>
+            </div>
+            <div id="start" class="center">
+                &nbsp;
+                <div class="go">&nbsp;</div>
+            </div>
+            <div class="text center"></div>
+        </div>
+    </div>
+    <div id="bgm_btn" class="on">&nbsp;</div>
+    <script>
+        document.body.addEventListener("touchstart", function () {
+            event.preventDefault();
+            event.stopPropagation();
+        });
+        document.body.addEventListener("touchmove", function () {
+            event.preventDefault();
+            event.stopPropagation();
+        });
+
+      
+    </script>
+
+
+</body></html>

@@ -1,0 +1,356 @@
+
+<!-- 
+    Created by kongdejian on 2016/10/27. 
+    QQ:807602757
+-->
+<!DOCTYPE html>
+<html lang="en" style="width: 100%;height: 100%;">
+<head>
+    <meta name="viewport" content="target-densitydpi=device-dpi,width=640, user-scalable = no">
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <title>多一克温暖，一路童行</title>
+    <link href="http://go.163.com/css/default.css" rel="stylesheet" type="text/css"/>
+    <script src="http://go.163.com/2015/public/team/kongdejian/jquery-2.0.3.min.js"></script>
+    <style>
+        html,body ,.wrapper{
+            -webkit-tap-highlight-color:rgba(0,0,0,0);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .video-div,.img-div{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 640px;
+            height: 1034px;
+            margin-left: -320px;
+            margin-top: -517px;
+        }
+        .img-div{
+            pointer-events: none;
+            /*-webkit-transition: transform 0.8s ease-out;*/
+            /*transition: transform 0.8s ease-out;*/
+            /*-webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.3, 1.2);*/
+            /*transition-timing-function: cubic-bezier(0.4, 0, 0.3, 1.2);*/
+        }
+        .img-div.imgAni{
+            -webkit-transform: translateY(316px);
+            transform: translateY(316px);
+        }
+        .img-div img{
+            /*scale 0.2*/
+            position: absolute;
+            top: 825px;
+            left: 50%;
+            width:40px;
+            height: 44px;
+            margin-left: -20px;
+            margin-top: -22px;
+            -webkit-transition: transform 1s ease-in-out;
+            transition: transform 1s ease-in-out;
+            -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.3, 1.2);
+            transition-timing-function: cubic-bezier(0.4, 0, 0.3, 1.2);
+        }
+        .img-div .img01{
+            margin-left:127px;
+            margin-top: -240px;
+        }
+        .img-div .img02{
+            /*offset 162*/
+            margin-left:127px;
+            margin-top: -402px;
+            -webkit-transform: translateY(162px);
+            transform: translateY(162px);
+        }
+        .img-div .img03{
+            /*offset 162*/
+            margin-left:127px;
+            margin-top: -564px;
+            -webkit-transform: translateY(162px);
+            transform: translateY(162px);
+        }
+        .img-div img.imgAni{
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+        }
+        .wrapper video{
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 640px;
+            height: 1034px;
+            margin-left: -320px;
+        }
+        .wrapper canvas{
+            position: absolute;
+            top: 715px;
+            left: 50%;
+            width: 200px;
+            height: 220px;
+            margin-left: -100px;
+            /*background: #ccc;*/
+            -webkit-transition: transform 2.5s ease-in-out;
+            transition: transform 2.5s ease-in-out;
+            -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.3, 1.2);
+            transition-timing-function: cubic-bezier(0.4, 0, 0.3, 1.2);
+        }
+        .wrapper .canvasAni{
+            pointer-events: none;
+            -webkit-transform: translate(147px, -218px) scale(0.2);
+            transform: translate(147px, -218px) scale(0.2);
+        }
+        .btn01{
+            position: absolute;
+            top: 33%;
+            left: 22%;
+            width: 118px;
+            height: 118px;
+            margin-left: -59px;
+            margin-top: -59px;
+            background: url("button.png") no-repeat center;
+            -webkit-animation: scale_ani 2.5s ease-in-out infinite;
+            animation: scale_ani 2.5s ease-in-out infinite;
+            pointer-events: none;
+            opacity: 0;
+            -webkit-transition: opacity 0.5s;
+            transition: opacity 0.5s;
+        }
+        .btn01.show{
+            pointer-events: auto;
+            opacity: 1;
+        }
+        .btn02{
+            position: absolute;
+            top: 88%;
+            left: 38%;
+            width: 74px;
+            height: 42px;
+            margin-left: -37px;
+            margin-top: -21px;
+            background: url("button2.png") no-repeat center;
+            pointer-events: none;
+            opacity: 0;
+            -webkit-transition: opacity 0.5s;
+            transition: opacity 0.5s;
+        }
+        .btn02.show{
+            pointer-events: auto;
+            opacity: 1;
+        }
+        .btn03{
+            position: absolute;
+            top: 88%;
+            left: 62%;
+            width: 74px;
+            height: 42px;
+            margin-left: -37px;
+            margin-top: -21px;
+            background: url("button3.png") no-repeat center;
+            pointer-events: none;
+            opacity: 0;
+            -webkit-transition: opacity 0.5s;
+            transition: opacity 0.5s;
+        }
+        .btn03.show{
+            pointer-events: auto;
+            opacity: 1;
+        }
+        @keyframes scale_ani {
+            50%{
+                -webkit-transform: scale(0.8);
+                transform: scale(0.8);
+            }
+        }
+    </style>
+</head>
+<body style="width: 100%;height: 100%;">
+
+<!--写入内容-->
+<div class="wrapper">
+    <div class="video-div">
+        <video src="http://flv.bn.netease.com/videolib3/1610/31/WSQTH4773/SD/WSQTH4773-mobile.mp4" x-webkit-airplay="true" poster="videoPic2.jpg?v2" playsinline webkit-playsinline preload="auto" autoplay></video>
+        <canvas></canvas>
+        <div class="img-div"></div>
+        <span class="btn01 playBtn"></span>
+        <span class="btn02 playBtn"></span>
+        <span class="btn03 resetBtn"></span>
+    </div>
+</div>
+<script>
+    var contralLock = true;
+    /*
+    if(navigator.userAgent.search(/Android/)>=0){
+        $('video').attr('src','http://flv.bn.netease.com/videolib3/1610/31/KWypq2641/SD/KWypq2641-mobile.mp4');
+        $('video').attr('poster','./videoPic.jpg?v2');
+        $('.wrapper').addClass('android');
+        var contralLock = false;
+    }*/
+    var scale = $('.wrapper').height()/1035;
+    $('.video-div').css({transform:'scale('+scale+')',webkitTransform:'scale('+scale+')'});
+    $('body').on('touchmove',function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+    });
+    var video = $('video');
+    var pauseLock01=true;
+    var pauseLock02=true;
+    var pauseLock03=true;
+    var endLock = true;
+    var frameTime = null;
+    var one = true;
+    function timeupdate() {
+        var _this = video[0];
+       // console.log(_this.currentTime);
+        if(_this.currentTime>1 && one){
+            one=false;
+        }
+        if(_this.currentTime>4&&pauseLock01){
+            $('.btn01').addClass('show');
+        }
+        if(_this.currentTime>6&&pauseLock01){
+            pauseLock01=false;
+            _this.pause();
+        }
+        if(contralLock&&_this.currentTime>57&&pauseLock02){
+            pauseLock02=false;
+            _this.pause();
+            $('.btn02,.btn03').addClass('show');
+        }
+        if(false&&_this.currentTime>88&&pauseLock03){
+            pauseLock03=false;
+            _this.pause();
+        }
+        if(contralLock&&_this.currentTime>61&&!$('canvas').hasClass('canvasAni')){
+            $('canvas').addClass('canvasAni');
+            
+        }
+        if(contralLock&&_this.currentTime>71&&!$('.img02').hasClass('imgAni')){
+            $('.img02').addClass('imgAni');
+        }
+        if(contralLock&&_this.currentTime>75&&!$('.img03').hasClass('imgAni')){
+            $('.img03').addClass('imgAni');
+        }
+        
+        
+        /*
+        if(contralLock&&_this.currentTime>returnTime(1,18,22)&&_this.currentTime<returnTime(1,19,20)){
+            var offsetTime = _this.currentTime-returnTime(1,18,22);
+            var totalTime = returnTime(1,19,20)-returnTime(1,18,22);
+            var y = (-(1-offsetTime/totalTime)/1.85*offsetTime/totalTime+offsetTime/totalTime)*316;
+//            console.log(((1-offsetTime/totalTime)/2*offsetTime/totalTime+offsetTime/totalTime));
+            $('.img-div').css({'transform':'translateY('+y+'px)','-webkit-transform':'translateY('+y+'px)'});
+        }else if(contralLock&&_this.currentTime>returnTime(1,19,20)){
+            $('.img-div').css({'transform':'translateY('+316+'px)','-webkit-transform':'translateY('+316+'px)'});
+        }*/
+        
+        
+        if(contralLock&&_this.currentTime>89.35){
+            $('.img-div').remove();
+        }
+        frameTime = requestAnimationFrame(timeupdate);
+    }
+    frameTime = requestAnimationFrame(timeupdate);
+    video.on('ended',function () {
+        endLock =false;
+    });
+    $('.btn01').click(function () {
+        if(endLock){
+            video[0].play();
+            $('.playBtn,.resetBtn').removeClass('show');
+        }
+    });
+    $('.btn02').click(function () {
+        if(endLock&&canvasLock){
+            video[0].play();
+            $('.playBtn,.resetBtn').removeClass('show');
+        }
+    });
+    $('.wrapper').click(function () {
+        if(one){
+            video[0].play();
+        }
+    });
+    function returnTime(m,s,f) {
+        return m*60+s+f/24;
+    }
+    var canvas = $('canvas')[0];
+    var base64='';
+    canvas.width =200;
+    canvas.height =220;
+    var ctx = canvas.getContext('2d');
+    ctx.strokeStyle='#da0a20';
+    ctx.lineWidth=5;
+    var canvasBounding = canvas.getBoundingClientRect();
+    var canvasLeft = canvasBounding.left-(640-640*scale)/2;
+    var canvasTop = canvasBounding.top;
+    canvasLeft /=scale;
+    canvasTop /=scale;
+    $('.resetBtn').click(function () {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.closePath();
+    });
+    var canvasLock=false;
+    $('canvas').on('touchstart',function (e) {
+        if(contralLock&&!pauseLock02) {
+            var touch = e.originalEvent.changedTouches[0];
+            var videoTouchX = touch.pageX - (640 - 640 * scale) / 2;
+            var videoTouchY = touch.pageY;
+            videoTouchX /= scale;
+            videoTouchY /= scale;
+            console.log(videoTouchX - canvasLeft, videoTouchY - canvasTop);
+            ctx.beginPath();
+            ctx.moveTo(videoTouchX - canvasLeft, videoTouchY - canvasTop);
+        }
+    }).on('touchmove',function (e) {
+        if(contralLock&&!pauseLock02) {
+            var touch = e.originalEvent.changedTouches[0];
+            var videoTouchX = touch.pageX - (640 - 640 * scale) / 2;
+            var videoTouchY = touch.pageY;
+            videoTouchX /= scale;
+            videoTouchY /= scale;
+            console.log(videoTouchX - canvasLeft, videoTouchY - canvasTop);
+            ctx.lineTo(videoTouchX - canvasLeft, videoTouchY - canvasTop);
+            ctx.stroke();
+            canvasLock=true;
+        }
+    }).on('webkitTransitionEnd transitionend',function (e) {
+    		console.log('webkitTransitionEnd transitionend1');
+        if($(this).hasClass('canvasAni')) {
+            base64=canvas.toDataURL();
+            var img = document.createElement('img');
+            img.className='img01';
+            img.src=base64;
+            $('.img-div')[0].appendChild(img);
+            var img = document.createElement('img');
+            img.className='img02';
+            img.src=base64;
+            $('.img-div')[0].appendChild(img);
+            $(img).on('webkitTransitionEnd transitionend',function () {
+            	console.log('webkitTransitionEnd transitionend2');
+            		if($(this).hasClass('imgAni')) {
+                    var img = document.createElement('img');
+                    img.className = 'img03';
+                    img.src = base64;
+                    $('.img-div')[0].appendChild(img);
+                }
+            });
+            $(this).remove();
+        }
+    });
+</script>
+
+
+</body>
+</html>

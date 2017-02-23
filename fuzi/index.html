@@ -1,0 +1,519 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>福！哪里跑！</title>
+    <link rel="dns-prefetch" href="//mat1.gtimg.com" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="format-detection"content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link href="http://mat1.gtimg.com/www/mobi/image/touch-icon-iphone.png" rel="apple-touch-icon">
+	<link href="http://mat1.gtimg.com/www/mobi/image/touch-icon-iphone-retina.png" sizes="120x120" rel="apple-touch-icon">
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+<style type="text/css">
+/*
+.layout{display:none; } 
+*/
+.game{display:block;-webkit-transform: translate3d(0px, 0px, 0px);}
+</style>
+</head>
+<body>
+
+	<!--loading-->
+	<div class="loading">
+		<div class="valance"></div>
+		<div class="logo">
+			<img width="100%" src="./img/load-logo.png" alt="收集福字贺新春" />
+		</div>
+		<div class="progress-bar">
+			<div class="inner">
+				<span class="car"></span>
+			</div>
+			<div class="progress-num">0%</div>
+		</div>
+
+		<div class="foot">
+			<span class="txxw"><img width="100%" src="./img/xw-logo.png" alt="腾讯新闻" /></span>
+			<span class="zanzhu"><img width="100%" src="./img/zanzhu.png" alt="五菱汽车 宝骏汽车" /></span>
+		</div>
+	</div>
+    <div class="tipsfixed">
+        <div class="valance"></div>
+		<div class="fu-ico"><img width="100%" src="./img/fu-ico.png"></div>
+    </div>
+	<!--global-->
+	<div class="global">
+		<div class="screen">
+			<!--layout page1-->
+			<div class="layout page1">
+				<div class="inner">
+					<a href="javascript:;" class="jump-btn"></a>
+					<div class="p1-fu"></div>
+					<div class="left-hand"></div>
+					<div class="right-hand"></div>
+					<div class="p1-t1"><img width="100%" src="./img/p1-t1.png" alt="你知道过年 倒贴福字的来历么？" /></div>
+					<div class="swipe_tip"></div>
+				</div>
+			</div>
+
+			<!--layout page2-->
+			<div class="layout page2">
+				<div class="inner">
+					<div class="mahuanghou"></div>
+					<div class="zhuyuanzhang"></div>
+					<div class="p2-t1"><img width="100%" src="./img/p2-t1v1.png" alt="你知道过年 倒贴福字的来历么？" /></div>
+					<div class="swipe_tip"></div>
+				</div>
+			</div>
+
+			<!--layout page3-->
+			<div class="layout page3">
+				<div class="inner">
+					<div class="p3-b1">
+						<div class="p3-t1"><img width="100%" src="./img/p3-t1.png" alt="过年倒贴福字的来历" /></div>
+					</div>
+					<div class="swipe_tip"></div>
+				</div>
+			</div>
+			
+			<!--layout page4-->
+			<div class="layout page4">
+				<div class="inner">
+					<div class="p4-b1">
+						<div class="p3-t1"><img width="100%" src="./img/p3-t1.png" alt="过年倒贴福字的来历" /></div>
+					</div>
+					<div class="swipe_tip"></div>
+				</div>
+			</div>
+
+			<!--layout page5-->
+			<div class="layout page5">
+				<div class="inner">
+					<div class="p5-b1">
+						<div class="p3-t1"><img width="100%" src="./img/p3-t1.png" alt="过年倒贴福字的来历" /></div>
+						<div class="zyz"></div>
+						<div class="d-fu"></div>
+						<div class="mhh"></div>
+					</div>
+					<div class="swipe_tip"></div>
+				</div>
+			</div>
+
+			<!--layout page6-->
+			<div class="layout page6">
+				<div class="inner">
+					<div class="p6-b1">
+						<div class="p3-t1"><img width="100%" src="./img/p3-t1.png" alt="过年倒贴福字的来历" /></div>
+					</div>
+					<div class="swipe_tip"></div>
+				</div>
+			</div>
+
+			<!--game-->
+			<div class="layout game">
+				<div class="panel" id="panel" >
+                    <div class="domAdBox"></div>
+                </div>
+				<div class="btns">
+                    <b class="goldl" id="goldl">0</b>
+                    <b class="goldr" id="goldr">0</b>
+                    <div class="colBnt" id="colBnt" >
+                        <a id="l-btn" href="javascript:;" class="press-btn"><span></span></a>
+					    <a id="r-btn" href="javascript:;" class="press-btn"><span></span></a>
+                    </div>
+                    <p class="tips">根据福字正反的提示 点击大门下方按钮</p>
+				</div>
+				
+                <!-- 游戏规则 -->
+                    <div class="yxgz tipsBox">
+                        <div class="shadow" id="shadClose" ></div>
+                        <div class="pictips" >
+                            <a  title="" href="javascript:;" class="gotogame" id="gotogame" >进入游戏</a>
+                        </div>
+                    </div>
+                <!-- /游戏规则 -->
+                <!-- 游戏结束 -->
+                    <div class="yxjs tipsBox">
+                        <div class="shadow"></div>
+                        <div class="pictips" >
+                            <div class="hd">
+                                <span class="close" ></span>
+                            </div>
+                            <div class="bd">
+                                <div class="gold"><span>10</span><span>10</span></div>
+                                <div class="goldall">20</div>
+                            </div>
+                            <div class="ft">
+                                <a  title="" href="javascript:;" class="reback" >再玩</a>
+                                <a  title="" href="javascript:;" class="share_btn">分享</a>
+                            </div>
+                        </div>
+                    </div>
+                <!-- /游戏结束 -->
+			</div>
+		</div>
+	</div>
+<!-- 资源传递 -->    
+<!-- 微信分享信息 --><input id="r-wx-title" type="hidden" value="羊年大吉，收集福字送给你" />
+<!-- 微信分享图片 --><input id="r-wx-img"   type="hidden" value="http://img1.gtimg.com/news/pics/hv1/45/159/1790/116435340.jpg" />
+<!-- 微信描述内容 --><input id="r-wx-con"   type="hidden" value="大家一起来动动手指，收集福字贺新春" />
+<!-- 资源传递 end-->
+<!--overlay-->
+<div class="overlay"></div>
+<script type="text/javascript" src="./js/zepto.min.js"></script>
+<script type="text/javascript" src="./js/touch.js"></script>
+<script type="text/javascript" src="./js/TweenMax.min.js"></script>
+<script type="text/javascript" src="./js/preloadjs-0.6.0.min.js"></script>
+
+<style type="text/css">
+.game .move .press-btn span{-webkit-animation:flipOutX 0.5s .5s ease both;}
+.game .move .press-btn:nth-child(2) span{-webkit-animation:flipOutX 0.5s .6s ease both;}
+@-webkit-keyframes flipOutX{
+0%,100%,50%{background:url(./img/press-btn.png) no-repeat ;background-size: 80px 50px;margin-top:0px; }
+25%,75%{background:url(./img/press-on-btn.png) no-repeat ;background-size: 80px 47px;margin-top:5px;}
+}
+</style>
+<div class="weixin_layout"></div>
+<script type="text/javascript">
+var base_url = './';
+/*预先加载页面*/
+(function() {
+	var preimgs = [
+		base_url+"img/valance.png", 
+		base_url+"img/body-bg.jpg",
+		base_url+"img/load-logo.png",
+		base_url+"img/car.png",
+		base_url+"img/load-progress.png",
+		base_url+"img/load-progress-red.png",
+		base_url+"img/xw-logo.png",
+		base_url+"img/zanzhu.png"
+	];
+
+	var preload = new createjs.LoadQueue(false);
+	preload.addEventListener("complete", loadingComplete);
+	preload.setMaxConnections(1);
+
+	function loadingComplete() {
+		$(".loading").show();
+	}
+	
+	for (0 == preimgs.length; 0 < preimgs.length;) {
+		preload.loadFile(preimgs.shift());
+	}
+	
+})();
+
+/*页面素材加载*/
+(function() {
+	var gameimgs = [
+			base_url+"img/game-bg.jpg", 
+			base_url+"img/jp-1-a.png", 
+			base_url+"img/jp-1-b.png", 
+			base_url+"img/jp-2-a.png", 
+			base_url+"img/jp-2-b.png", 
+			base_url+"img/jp-3-a.png", 
+			base_url+"img/jp-3-b.png", 
+			base_url+"img/jp-4-a.png", 
+			base_url+"img/jp-4-b.png", 
+			base_url+"img/jp-5-a.png", 
+			base_url+"img/jp-5-b.png", 
+			base_url+"img/jp-6-a.png", 
+			base_url+"img/jp-6-b.png", 
+			base_url+"img/jp-7-a.png", 
+			base_url+"img/jp-7-b.png", 
+			base_url+"img/jp-8-a.png", 
+			base_url+"img/jp-8-b.png", 
+			base_url+"img/jp-9-a.png", 
+			base_url+"img/jp-9-b.png", 
+			base_url+"img/jp-10-a.png", 
+			base_url+"img/jp-10-b.png", 
+			base_url+"img/jp-11-a.png", 
+			base_url+"img/jp-11-b.png", 
+			base_url+"img/jp-12-a.png", 
+			base_url+"img/jp-12-b.png", 
+			base_url+"img/jp-13-a.png", 
+			base_url+"img/jp-13-b.png", 
+			base_url+"img/jp-14-a.png", 
+			base_url+"img/jp-14-b.png", 
+			base_url+"img/jp-15-a.png", 
+			base_url+"img/jp-15-b.png"
+		];
+
+	var pregame = new createjs.LoadQueue(false);
+
+	pregame.addEventListener("progress", loadingProgress);
+	pregame.addEventListener("complete", loadingComplete);
+	pregame.setMaxConnections(1);
+
+	function loadingProgress(e) {
+		$(".progress-num").html(Math.round(e.progress * 100) + "%");
+		if (e.progress < 1) {
+			$(".progress-bar .inner").animate({
+				"width": Math.round(e.progress * 100) + "%"
+			});
+		} else {
+			$(".progress-bar .inner").animate({
+				"width": Math.round(e.progress * 100) + "%"
+			}, {
+				complete: function() {
+					setTimeout(function () {
+						$('.loading').hide();
+						$('.global').show();
+						Layout.page(0,Layout._h);
+					}, 200);
+				}
+			});
+		}
+	}
+
+	function loadingComplete() {}
+
+	for (0 == gameimgs.length; 0 < gameimgs.length;) {
+		pregame.loadFile(gameimgs.shift());
+	}
+	
+})();
+
+
+
+var UA = function() {
+	var userAgent = navigator.userAgent.toLowerCase();
+	return {
+		ipad: /ipad/.test(userAgent),
+		iphone: /iphone/.test(userAgent),
+		android: /android/.test(userAgent),
+		weixin: /micromessenger/.test(userAgent),
+		qqnews_version: userAgent.match(/qqnews/i) == "qqnews" ? userAgent.split('qqnews/')[1] : ''
+	};
+}
+
+function compareVersions(v1, comparator, v2) {
+    comparator = comparator == '=' ? '==' : comparator;
+    var v1parts = v1.split('.'), v2parts = v2.split('.');
+    var maxLen = Math.max(v1parts.length, v2parts.length);
+    var part1, part2;
+    var cmp = 0;
+    for(var i = 0; i < maxLen && !cmp; i++) {
+        part1 = parseInt(v1parts[i], 10) || 0;
+        part2 = parseInt(v2parts[i], 10) || 0;
+        if(part1 < part2)
+            cmp = 1;
+        if(part1 > part2)
+            cmp = -1;
+    }
+    return eval('0' + comparator + cmp);
+}
+
+var Layout = {
+    _w : $(window).width(),
+    _h : $(window).height(),
+    _len : $(".layout").length,
+    page: function (i, _h){
+        $(".global").css({ "-webkit-transform": "translate3d(0px, -" + _h * i +"px, 0px)" });
+        $(".layout .inner").removeClass("animate");
+        $(".layout").eq(i).find(".inner").addClass("animate");
+    },
+    swipe: function(){
+        var _this = this;
+        $(".layout").each(function(i, elm) {
+	    	$(elm).on("swipeUp", function() {
+		    	if (i < _this._len - 1) {
+			    	_this.page(i+1, _this._h);
+		    	}
+                if (i == 5) {
+                    setTimeout(function(){$(".tipsfixed").hide()},1000);
+                }
+	    	}).on("swipeDown", function() {
+		    	if (i > 0 && i < _this._len - 1) {
+			    	_this.page(i-1, _this._h);
+		    	}
+	    	});
+        });
+
+		$(".jump-btn").on("click",function() {
+            setTimeout(function(){$(".tipsfixed").hide()},1000);
+			$(".global").removeClass("ease");
+			$(".overlay").show();
+			_this.page(_this._len-1, _this._h);
+		});
+    },
+    init: function(){
+        var _this = this;
+        var ua = UA();
+        
+        if(ua.iphone && ua.qqnews_version != "" &&  compareVersions(ua.qqnews_version ,"<","4.4") ){//在IOS的新闻客户端中执行
+            _this._h = _this._h - 44;
+        }
+        
+        $(".swipe_tip").addClass("fadeOutUp");
+        $(".global").width( _this._w ).height( _this._h * _this._len ).addClass("ease");
+        $(".screen").width( _this._w ).height( _this._h * _this._len );
+        $(".layout,.loadPage,#qytips,#muList").width( _this._w ).height( _this._h );
+        $(".scrlBox").height( _this._h - 90).width( _this._w );
+        $("#jsyscrl").height( _this._h - 180);
+        _this.swipe();
+    }
+}
+Layout.init();
+
+
+
+
+gameSet = {
+    speed: 80,               // 移动速度
+    scoreLf: 0,               // 初始化分数
+    scoreRt: 0,               // 初始化分数
+    level: 0,               // 关卡
+    cur: 0,
+    gold0 : 0, // 
+    gold1 : 0,
+    mypot : 8,
+    domPl: 50,//上下距离误差
+    objBot : 500, //距离底部初始化距离
+    objht : 150, //福字矫正距离
+    mytime : null,
+    timekx : null ,
+    isclick : false ,
+    levelup : 5,//升级轮次
+    addDom : function(){
+        var _this = this ;
+        //$(".domAdBox").html("");
+        for (var i = 0, l = 300; i < l; i++) {
+            if (i % 10 == 9) {
+            		//出广告
+                var myrand = Math.floor(Math.random()*2) ;
+                $(".domAdBox").append('<b class="dom3 poa'+myrand+'" mycol="2" style="bottom:'+ i* 100+'px"></b>');
+            }else{
+            		//add fu
+                var myrand = Math.floor(Math.random()*2) ;
+                $(".domAdBox").append('<b class="dom'+myrand+' mypor'+myrand+'" mycol="'+myrand+'" style="bottom:'+ i* 100+'px"></b>');
+            }
+        }
+    },
+    error : function(){
+        var _this = this ;
+        if (_this.isclick) {
+            _this.isclick = false;
+            clearInterval(_this.mytime);
+            var totlegold = _this.gold0 + _this.gold1;
+            $(".yxjs .gold").find("span").eq(0).html(_this.gold0);
+            $(".yxjs .gold").find("span").eq(1).html(_this.gold1);
+            $(".yxjs .goldall").html(totlegold);
+            var shareTit = "羊年大吉，我收集了"+ totlegold +"个福字送给你";
+
+            setTimeout(function(){
+                $(".yxjs").show();
+            },1000)
+        }
+    },
+    picscrl : function(){
+        var _this = this ;
+        _this.objBot -= _this.mypot;
+        $(".domAdBox").css({"bottom": _this.objBot +"px"});
+    },
+    returnmr : function(){
+        var _this = this ;
+        clearTimeout(_this.timekx);
+        $(".domAdBox").css({"bottom": _this.objBot +"px"});
+        $(".goldr,.goldl").html("0");
+        _this.scoreLf = 0;               // 初始化分数
+        _this.scoreRt = 0;               // 初始化分数
+        _this.level = 0;               // 关卡
+        _this.cur = 0;
+        _this.isclick = true ;
+        _this.gold0 = 0; // 
+        _this.gold1 = 0;
+        _this.mypot = 8;
+        _this.objBot = 400;
+        clearInterval(_this.mytime);
+        //_this.addDom();
+        _this.mytime = setInterval(function(){
+            _this.picscrl();
+        },_this.speed);
+        
+        //时间到
+        _this.timekx = setTimeout(function(){
+        	//console.log('b');
+        		_this.error();
+        },5000);
+    },
+    init : function(){
+        var _this = this ;
+        _this.returnmr();
+        $("#colBnt a").bind("click",function(){
+            clearTimeout(_this.timekx);
+            var myidx = $(this).index();
+            var timp = Math.abs(_this.objBot + _this.cur*100 - _this.objht);
+            //console.log(_this.objBot + _this.cur*100 - _this.objht);
+            if ( myidx == $(".domAdBox b").eq(_this.cur).attr("mycol") && timp < _this.domPl) {
+                _this.cur ++;
+                _this.level ++;
+                if (myidx == 0) {
+                    _this.gold0 ++;
+                    $("#goldl").html(_this.gold0);
+                    $(".domAdBox b").eq(_this.cur - 1).addClass("addfu");
+                }else if(myidx == 1){
+                    _this.gold1 ++;
+                    $("#goldr").html(_this.gold1);
+                    $(".domAdBox b").eq(_this.cur - 1).addClass("addfu");
+                }
+                if (_this.cur % 10 == 9) {
+                    _this.cur ++;
+                }
+                // level up
+                if (_this.level >= _this.levelup ) {
+                    _this.mypot ++;
+                    _this.level = 0;
+                }
+            }else{
+                _this.error();
+            }
+         
+            
+            _this.timekx = setTimeout(function(){
+            		console.log('a');
+                _this.error();
+            },4000);
+        		
+        });
+    }
+}
+gameSet.addDom();
+var isfistGame = true;
+$("#gotogame").bind("click",function(){
+    $(".yxgz").hide();
+    $("#colBnt").addClass("move");
+    if (isfistGame) {
+        isfistGame = false;
+        setTimeout(function(){gameSet.init();},500);
+    }else{
+        gameSet.addDom();
+        gameSet.returnmr();
+    }
+    
+})
+$(".yxjs .close").bind("click",function(){
+    $(".yxjs").hide();
+    $("#colBnt").removeClass("move");
+    $(".domAdBox").html("").css({"bottom": "400px"});;
+    $(".yxgz").show();
+})
+
+//再玩
+$(".reback").bind("click",function(){
+    $(".yxjs").hide();
+    $("#colBnt").removeClass("move");
+    //$(".domAdBox").html("").css({"bottom": "400px"});;
+    //$(".yxgz").show();
+    gameSet.init();
+})
+
+$(".share_btn").bind("click",function(){
+	alert("分享");
+})
+</script>
+</body>
+</html>

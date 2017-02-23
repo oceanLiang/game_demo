@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- saved from url=(0021)http://a.pentv.cn/gs/ -->
+<html style="min-height: 665px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<title>果蔬达人-pentv微信游戏软件</title>
+	<style>
+		html,body,#gameContainer {margin: 0;padding: 0;font-family: "微软雅黑"; overflow: hidden;}
+        .hide { display: none; }
+    </style>
+<style type="text/css">.game9gdialog {display:none;color: white;background-color: rgb(0,0,0);text-align: center;-moz-border-radius: 8px;-webkit-border-radius: 8px;border-radius: 8px;font-family: Arial,Helvetica,sans-serif;font-weight: normal;font-size: 14px;width: 280px; z-index: 9991; top: 50%; left: 50%; position: fixed; margin-left: -140px; margin-top: -82.5px;}.game9gdialog header {font-weight: bold;margin-top: 10px;text-align: center;height: auto;width:auto;}.game9gdialog section {padding: 0px 20px 20px 20px;text-align: center;font-family: Arial,Helvetica,sans-serif;font-weight: normal;height:auto;width: auto;box-shadow: rgb(178, 178, 178) 0px -1px 1px -1px inset;}.game9gdialog footer {height: 60px;padding: 0px 0px;width: auto;}.game9gdialog footer a {display: inline-block;color: #007afe;text-align: center;line-height: 36px;font-weight: bold;text-decoration: none;Arial,Helvetica,sans-serif;font-size: 16px;width:43%;margin: 8px;border: solid 1px white;}.game9gmake{display:none;z-index: 9990; background-color: rgb(0, 0, 0); position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0.5}</style></head>
+<body>
+	
+	<div id="gameContainer">
+	
+	</div>
+	
+    <script src="./gs_files/phaser.min.js"></script>
+	<script src="./gs_files/Boot.js"></script>
+	<script src="./gs_files/LoadingUI.js"></script>
+	<script src="./gs_files/Game.js"></script>
+	<script src="./gs_files/BlockManager.js"></script>
+<script>
+	(function(){
+		window.onload = function(){
+			var game = new Phaser.Game(640, 960, Phaser.AUTO, 'gameContainer');
+			//初始化方块管理类
+			Silde.BlockManager.initialize(game);
+			game.state.add('Boot', Silde.Boot);
+			game.state.add('Game', Silde.Game);
+			game.state.start('Boot');
+		};
+	})();
+</script>
+    <script language="javascript">
+        var mebtnopenurl = 'http://a.pentv.cn/gs/tz.html';
+		window.shareData = {
+		        "imgUrl": "http://i2.tietuku.com/e6130a90c0ac30af.png",
+            "timeLineLink": "http://a.pentv.cn/gs/index.html?f=zf",
+		        "tTitle": "果蔬达人-pentv微信游戏软件",
+		        "tContent": "根据最下面的图案，快速选择水果or蔬菜，挑战吧！"
+		};
+				
+		function goHome(){
+			window.location=mebtnopenurl;
+		}
+
+		function dp_share(){
+			document.getElementById("share").style.display="";
+			
+		}
+		function dp_Ranking(){
+			window.location=mebtnopenurl;
+		}
+
+		function showAd(){
+		}
+		function hideAd(){
+		}
+		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		    
+		    WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+		        WeixinJSBridge.invoke('sendAppMessage', {
+		            "img_url": window.shareData.imgUrl,
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, onShareComplete);
+		    });
+
+		    WeixinJSBridge.on('menu:share:timeline', function(argv) {
+		        WeixinJSBridge.invoke('shareTimeline', {
+		            "img_url": window.shareData.imgUrl,
+		            "img_width": "640",
+		            "img_height": "640",
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, onShareComplete);
+		    });
+		}, false);
+		</script>
+		<div id="share" style="display: none">
+			<img width="100%" src="./gs_files/caf171a1a4ec5616.png" style="position: fixed; z-index: 9999; top: 0; left: 0; display: " ontouchstart="document.getElementById(&#39;share&#39;).style.display=&#39;none&#39;;">
+		</div>
+			<script type="text/javascript">
+            var myData = { gameid: "gs" };
+			
+			function dp_submitScore(score){
+						myData.score = parseInt(score);
+						myData.scoreName ="吃掉了"+score+"个果蔬";		
+						document.title = window.shareData.tTitle ="我吃掉了"+score+"个果蔬，感觉自己萌萌哒！";
+			}
+			function onShareComplete(res) {
+               
+	        }
+			</script>
+			
+			
+
+
+</body></html>

@@ -1,0 +1,874 @@
+a,input,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+	font: inherit;
+	font-size: 100%;
+}
+
+html {
+	line-height: 1;
+}
+
+ol,ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+caption,td,th {
+	vertical-align: middle;
+	text-align: left;
+	font-weight: 400;
+}
+
+blockquote,q {
+	quotes: none;
+}
+
+blockquote:after,blockquote:before,q:after,q:before {
+	content: "";
+	content: none;
+}
+
+a img {
+	border: none;
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary {
+	display: block;
+}
+
+img {
+	border: none;
+	vertical-align: top;
+}
+
+body,html,img {
+	margin: 0;
+	padding: 0;
+}
+
+body,html {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	font-size: 24px;
+	font-family: 微软雅黑,Arial,sans-serif;
+}
+
+body .hide,html .hide {
+	z-index: 0;
+	display: none;
+}
+
+body .show,html .show {
+	z-index: 5;
+	display: block;
+}
+
+body .active,html .active {
+	z-index: 10;
+	display: block;
+}
+
+body .level,html .level {
+	z-index: 3;
+	display: block;
+}
+
+a {
+	color: inherit;
+}
+
+.loading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1110;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+}
+
+.roundSpinner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: -1;
+	margin: 0 auto;
+	margin-top: -30px;
+	margin-left: -75px;
+	width: 150px;
+	text-align: center;
+}
+
+.roundSpinner>div {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	background-color: #fbead8;
+	-webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+	animation: bouncedelay 1.4s infinite ease-in-out;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+.roundSpinner .bounce1 {
+	-webkit-animation-delay: -.32s;
+	animation-delay: -.32s;
+}
+
+.roundSpinner .bounce2 {
+	-webkit-animation-delay: -.16s;
+	animation-delay: -.16s;
+}
+
+@-webkit-keyframes bouncedelay {
+	0%,80%,to {
+		-webkit-transform: scale(0);
+	}
+
+	40% {
+		-webkit-transform: scale(1);
+	}
+}
+
+@keyframes bouncedelay {
+	0%,80%,to {
+		-webkit-transform: scale(0);
+		transform: scale(0);
+	}
+
+	40% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
+.main {
+	position: relative;
+	display: none;
+	overflow: hidden;
+	margin: 0 auto;
+	width: 40pc;
+	height: 100%;
+}
+
+.game {
+	z-index: 11;
+	display: none;
+	height: 30%;
+}
+
+.game,.game .bridge {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.game .bridge {
+	height: 100%;
+}
+
+.game .bridge li {
+	position: absolute;
+	width: 90pt;
+	height: 100%;
+	background-color: #fefc31;
+}
+
+.game .role {
+	position: absolute;
+	top: -75px;
+	width: 47px;
+	height: 75px;
+	background-image: url(http://cdnwx.jkbk.cn/xly/wx/sweets/images/role5.png?v=1);
+	background-repeat: no-repeat;
+}
+
+.game .line {
+	top: -3px;
+	height: 3px;
+}
+
+.game .line,.game .line span {
+	position: absolute;
+	right: 0;
+	width: 6px;
+}
+
+.game .line span {
+	bottom: 0;
+	height: 0;
+	background-color: #f75a32;
+	-webkit-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+}
+
+.gameBg {
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+
+.gameBg,.gameBg .bg1 {
+	position: absolute;
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+
+.gameBg .bg1 {
+	background-color: #141f3f;
+}
+
+.gameBg .bg1 .cloud2 {
+	position: absolute;
+	top: 20%;
+}
+
+.gameBg .bg2 .cloud2 {
+	position: absolute;
+	top: 20%;
+}
+
+.gameBg .bg1 .cloud1,.gameBg .bg2 .cloud1,.gameBg .bg3 .cloud1 {
+	position: absolute;
+	top: 30%;
+}
+
+.gameBg .bg3 .cloud2 {
+	position: absolute;
+	top: 10%;
+}
+
+.gameBg .bg1 .hj,.gameBg .bg1 .house {
+	position: absolute;
+	bottom: 0;
+}
+
+.gameBg .bg1 .hj {
+	left: 125px;
+}
+
+.gameBg .bg1 .ufo {
+	position: absolute;
+	top: 77px;
+	left: 35px;
+}
+
+.gameBg .bg1 .t1 {
+	position: absolute;
+	top: 210px;
+	left: 262px;
+}
+
+.gameBg .bg1 .t2 {
+	position: absolute;
+	top: 286px;
+	left: 313px;
+}
+
+.gameBg .bg1 .star {
+	position: absolute;
+	top: 50px;
+	width: 40pc;
+	height: 25pc;
+}
+
+.gameBg .bg1 .star li {
+	position: absolute;
+}
+
+.gameBg .bg1 .star li:nth-child(1) {
+	top: 66px;
+	left: 537px;
+}
+
+.gameBg .bg1 .star li:nth-child(2) {
+	top: 1pc;
+	left: 337px;
+}
+
+.gameBg .bg1 .star li:nth-child(3) {
+	top: 8pc;
+	left: 406px;
+}
+
+.gameBg .bg1 .star li:nth-child(4) {
+	top: 220px;
+	left: 50px;
+}
+
+.gameBg .bg1 .star li:nth-child(5) {
+	top: 277px;
+	left: 177px;
+}
+
+.gameBg .bg1 .star li:nth-child(6) {
+	top: 450px;
+	left: 111px;
+}
+
+.gameBg .bg1 .star li:nth-child(7) {
+	top: 375px;
+	left: 430px;
+}
+
+.gameBg .bg2 {
+	position: absolute;
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+
+.gameBg .bg2 .sun {
+	position: absolute;
+	top: 61px;
+	left: 49px;
+	z-index: 1;
+}
+
+.gameBg .bg2 .txt {
+	position: absolute;
+	top: 195px;
+	left: 311px;
+	z-index: 1;
+}
+
+.gameBg .bg3 {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.gameBg .bg3 .moon {
+	position: absolute;
+	top: 98px;
+	left: 113px;
+	z-index: 1;
+}
+
+.gameBg .bg3 .txt {
+	position: absolute;
+	top: 102px;
+	left: 227px;
+	z-index: 1;
+}
+
+.cloud1Am {
+	-webkit-animation: cloud1Am 10s linear infinite;
+}
+
+.cloud2Am {
+	-webkit-animation: cloud2Am 10s linear infinite;
+}
+
+.infoPage {
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+}
+
+.infoPage .tit {
+	position: absolute;
+	top: 12%;
+    left: 22%;
+	z-index: 1;
+	margin-top: 0;
+}
+
+.infoPage .gz {
+	position: absolute;
+	right: 50px;
+	bottom: 0;
+	z-index: 1;
+	-webkit-transform-origin: center bottom;
+	transform-origin: center bottom;
+}
+
+.infoPage .gz .gzTxt {
+	position: absolute;
+	top: 37px;
+	left: 40px;
+}
+
+.infoPage .lu {
+	position: absolute;
+	bottom: 10%;
+	left: 60px;
+	z-index: 1;
+}
+
+.infoPage .bg {
+	bottom: 0;
+	left: 0;
+}
+
+.infoPage .bg,.infoPage .bg img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.infoPage .copyright {
+	bottom: 10px;
+	z-index: 1;
+	color: #fff;
+	text-align: center;
+	font-size: 20px;
+}
+
+.btnIco {
+	position: absolute;
+	z-index: 10000;
+	padding-top: 86px;
+	width: 82px;
+	height: 30px;
+	background-image: url(../images/btnIco.png);
+	background-repeat: no-repeat;
+	text-align: center;
+}
+.btnRankIco {
+	position: absolute;
+	z-index: 10000;
+	padding-top: 80px;
+	width: 82px;
+	height: 30px;
+	background-image: url(../images/ranking.png);
+	background-repeat: no-repeat;
+	text-align: center;
+}
+.myBtn {
+	top: 30px;
+	left: 30px;
+}
+
+.viewBtn {
+	top: 155px;
+	left: 30px;
+	background-position: -246px 0;
+}
+
+.ruleBtn {
+	top: 30px;
+	right: 30px;
+	background-position: -82px 0;
+}
+.rankBtn {
+	top: 35px;
+	right: 110px;
+	background-position: 0 0;
+}
+
+.musicBtn {
+	top: 155px;
+	right: 30px;
+	background-position: -164px 0;
+}
+
+.panel {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 11111;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.85);
+}
+
+.myPanel {
+	display: none;
+}
+
+.paihang{
+	display: none;
+}
+
+.myPanel .scoreBox {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -332px;
+	margin-left: -296px;
+	width: 37pc;
+	height: 29pc;
+}
+
+.myPanel .scoreBox .score {
+	position: absolute;
+	top: 21pc;
+	left: 189px;
+	width: 152px;
+	height: 45px;
+	color: #141f3f;
+	text-align: center;
+	font-weight: 700;
+	font-size: 2pc;
+	line-height: 45px;
+}
+
+.myPanel .scoreBox .scoreTxt {
+	position: absolute;
+	top: 28%;
+	width: 100%;
+	text-align: center;
+}
+
+.ck{
+	position: absolute;
+	top: 4%;left:88%
+}
+
+
+.myPanel .scoreBox .t2 {
+	top: 76px;
+	left: 295px;
+	width: 5pc;
+	width: 110px;
+}
+
+.myPanel .scoreBox .playGameNum,.myPanel .scoreBox .t2 {
+	position: absolute;
+	display: none;
+	height: 40px;
+	font-weight: 700;
+	font-size: 2pc;
+	line-height: 26px;
+}
+
+.myPanel .scoreBox .playGameNum {
+	top: 125px;
+	left: 15pc;
+	width: 150px;
+}
+
+
+/*提示 */
+
+.tishi {
+	display: none;
+}
+
+.tishi .tishiBox {
+	position: absolute;
+        margin-top: 5%;
+    margin-left: 3%;
+}
+.tishi .tishiBox .iknow{
+	position: absolute;
+   top: 81%;
+    left: 21%;
+    width: 60%;
+}
+
+/*未关注*/
+
+.no_g {
+	display: none;
+}
+
+.no_g .tishiBox {
+	position: absolute;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+/*分享 */
+.share {
+	display: none;
+}
+
+.share .tishiBox {
+	position: absolute;
+    margin-top: 7%;
+    margin-left: 9%;
+}
+
+.rulePanel {
+	display: none;
+}
+
+.rulePanel .ruleBox {
+	position: absolute;
+	width: 586px;
+	height: 927px;
+	     top: 4%;
+    left: 4%;
+}
+
+.rulePanel .ruleBox .closeBtn {
+	position: absolute;
+	top: 6%;
+	right: -10px;
+	width: 5pc;
+	height: 5pc;
+}
+
+.successPanel {
+	display: none;
+}
+
+.successPanel .successBox {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -350px;
+	margin-left: -248px;
+	width: 495px;
+	height: 613px;
+}
+
+.successPanel .successBox .backBtn {
+	position: absolute;
+	top: 475px;
+	left: 135px;
+	width: 90px;
+	height: 110px;
+}
+
+.successPanel .successBox .continueBtn {
+	position: absolute;
+	top: 475px;
+	left: 270px;
+	width: 90px;
+	height: 110px;
+}
+
+.failPanel {
+	display: none;
+}
+
+.failPanel .failBox {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -350px;
+	margin-left: -248px;
+	width: 495px;
+	height: 613px;
+}
+
+.failPanel .failBox .failTxt {
+	position: absolute;
+	top: 27%;
+	width: 100%;
+	text-align: center;
+}
+
+
+.failPanel .failBox .success_txt {
+	position: absolute;
+	top: 4.3pc;
+	left: 265px;
+	display: none;
+	width: 5pc;
+	height: 50px;
+	color: #141f3f;
+	font-weight: 700;
+	font-size: 38px;
+	line-height: 43px;
+}
+.failPanel .failBox .best_txt {
+	position: absolute;
+    top: 60%;
+    left: 42%;
+    display: none;
+    width: 5pc;
+    height: 50px;
+    color: #141f3f;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 43px;
+}
+
+.failPanel .failBox .backBtn {
+	position: absolute;
+	top: 5in;
+	left: 200px;
+	width: 90px;
+	height: 110px;
+}
+
+.hit {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 66;
+	width: 100%;
+	height: 100%;
+}
+.btn-new{
+	margin: 0.5rem auto 0;
+	width:60%;
+	min-height:3rem;
+}
+
+
+
+
+
+@-webkit-keyframes cloud1Am {
+	0% {
+		-webkit-transform: translate(-298px, 0);
+	}
+
+	to {
+		-webkit-transform: translate(640px, 0);
+	}
+}
+
+@-webkit-keyframes cloud2Am {
+	0% {
+		-webkit-transform: translate(640px, 0);
+	}
+
+	to {
+		-webkit-transform: translate(-200px, 0);
+	}
+}
+
+.flashAm {
+	-webkit-animation-name: flashAm;
+	-webkit-animation-duration: 1.5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes flashAm {
+	0% {
+		opacity: 1;
+	}
+
+	40% {
+		opacity: .1;
+	}
+
+	80%,to {
+		opacity: 1;
+	}
+}
+
+.scaleAm {
+	-webkit-animation-name: scaleAm;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes scaleAm {
+	0% {
+		-webkit-transform: scale(1);
+	}
+
+	50% {
+		-webkit-transform: scale(1.05);
+	}
+
+	to {
+		-webkit-transform: scale(1);
+	}
+}
+
+.scaleAm2 {
+	-webkit-animation-name: scaleAm2;
+	-webkit-animation-duration: 1.5s;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes scaleAm2 {
+	0% {
+		-webkit-transform: scale(1);
+	}
+
+	50% {
+		-webkit-transform: scale(0.95);
+	}
+
+	to {
+		-webkit-transform: scale(1);
+	}
+}
+
+.roleRunAm {
+	-webkit-animation-name: roleRunAm;
+	-webkit-animation-duration: .4s;
+	-webkit-animation-timing-function: steps(4);
+	-webkit-animation-iteration-count: infinite;
+	animation-name: roleRunAm;
+	animation-duration: .4s;
+	animation-timing-function: steps(4);
+	animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes roleRunAm {
+	0% {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: -188px 0;
+	}
+}
+
+@keyframes roleRunAm {
+	0% {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: -188px 0;
+	}
+}
+
+.del01 {
+	-webkit-animation-delay: .1s!important;
+}
+
+.del02 {
+	-webkit-animation-delay: .2s!important;
+}
+
+.del03 {
+	-webkit-animation-delay: .3s!important;
+}
+
+.del04 {
+	-webkit-animation-delay: .4s!important;
+}
+
+.del05 {
+	-webkit-animation-delay: .5s!important;
+}
+
+.del06 {
+	-webkit-animation-delay: .6s!important;
+}
+
+.del07 {
+	-webkit-animation-delay: .7s!important;
+}
+
+.dur03 {
+	-webkit-animation-duration: .3s!important;
+}
+
+.dur05 {
+	-webkit-animation-duration: .5s!important;
+}
+
+.dur5 {
+	-webkit-animation-duration: 5s!important;
+}

@@ -1,0 +1,583 @@
+@charset "UTF-8";
+/*reset*/
+body,div,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,iframe,input,textarea,select,label,article,aside,footer,header,menu,nav,section,time,audio,video{margin:0;padding:0;}
+article,aside,footer,header,hgroup,nav,section,audio,canvas,video{display:block;}
+body{font-size:100%;font-family:Helvetica,STHeiti,Droid Sans Fallback;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+textarea{resize:none;}
+iframe,img{border:0;}
+ul,ol,ul li{list-style:none;}
+input,select,textarea{outline:0;-webkit-user-modify:read-write-plaintext-only;}
+input{-webkit-appearance:none;}
+a{text-decoration:none;}
+.cf:after{content:"";display:table;clear:both}  
+.cf{*zoom:1}
+h1,h2,h3{font-weight:100;}
+
+/*page*/
+body,html{overflow:hidden;height:100%;width:100%}
+body{background:url(http://mat1.gtimg.com/news/2015/songfu/img/body-bg.jpg) no-repeat;background-size:cover}
+.global{clip: rect(100px, 100px, 100px, 100%);position:absolute;height:100%;width:100%;overflow:hidden; -webkit-transform-style:preserve-3d;-webkit-backface-visibility:hidden;-webkit-transition: all 1.0s ease-in-out;z-index:2;display:none}
+.screen{-webkit-transform-style:preserve-3d;}
+.layout{position:relative;overflow:hidden;}
+.valance{position:absolute;top:0;left:0;height:25px;width:100%;background:url(http://mat1.gtimg.com/news/2015/songfu/img/valance.png) repeat-x top center;background-size:50px 25px}
+.fu-ico{
+	position:absolute;
+	top: 0;
+	left: 5px;
+	width: 93px;
+	height: 85px;
+}
+.swipe_tip{width:40px;height:32px;margin:0 0 0 -20px;position:absolute;left:50%;bottom:5px;background:url(http://mat1.gtimg.com/news/2015/songfu/img/up-arr.png) no-repeat;background-size:40px 32px;z-index:2}
+.fadeOutUp{-webkit-animation:2s fadeOutUp ease-in-out infinite;}
+
+/*loading*/
+.loading{position:absolute;top:0;left:0;height:100%;width:100%;display:none}
+.loading .logo{position:absolute;top:10%;left:50%;height:245px;width:245px;margin-left:-122px}
+.progress-bar{position:absolute;top:336px;left:50%;margin-left:-95px;width:191px;height:40px;background:url(http://mat1.gtimg.com/news/2015/songfu/img/load-progress.png) no-repeat bottom center;background-size:191px 11px}
+.progress-bar .inner{position:absolute;top:0;left:0;height:40px;width:0;background:url(http://mat1.gtimg.com/news/2015/songfu/img/load-progress-red.png) no-repeat bottom left;background-size:191px 11px}
+.progress-bar .car{position:absolute;top:4px;right:0;display:block;width:62px;height:28px;background:url(http://mat1.gtimg.com/news/2015/songfu/img/car.png) no-repeat;background-size:62px 28px}
+.progress-num{padding-top:40px;text-align:center;font:12px/24px "Arial"}
+.loading .foot{position:absolute;bottom:0;left:0;height:36px;width:100%}
+.loading .foot .txxw{float:left;width:95px;height:18px;margin-left:18px}
+.loading .foot .zanzhu{float:right;width:80px;height:28px;margin-right:22px}
+
+/*story*/
+.jump-btn{
+	display:block;
+	height: 55px;
+	width: 55px;
+	position:absolute;
+	top: 30px;
+	right: 12px;
+	background:url(http://mat1.gtimg.com/news/2015/songfu/img/jump-btn.png) no-repeat;
+	background-size: 55px 55px;
+}
+.p1-fu{
+	height: 228px;
+	width: 228px;
+	position: absolute;
+	top: 82px;
+	left: 50%;
+	margin-left: -114px;
+	background: url(http://mat1.gtimg.com/news/2015/songfu/img/p1-fu.png) no-repeat;
+	background-size: cover;
+    -webkit-transform: rotate3d(0, 0, 1, 180deg);
+    	transform: rotate3d(0, 0, 1, 180deg);
+}
+.left-hand{
+	width: 123px;
+	height: 133px;
+	position: absolute;
+	top: 140px;
+	left: 0;
+	background: url(http://mat1.gtimg.com/news/2015/songfu/img/left-hand.png) no-repeat;
+	background-size: 123px 133px;
+}
+.right-hand{
+	width: 104px;
+	height: 119px;
+	position: absolute;
+	top: 200px;
+	right: 0;
+	background: url(http://mat1.gtimg.com/news/2015/songfu/img/right-hand.png) no-repeat;
+	background-size: 104px 119px;
+}
+.p1-t1{
+	position: absolute;
+	width: 182px;
+	height: 46px;
+	top: 320px;
+	left: 50%;
+	margin-left: -91px;
+}
+
+.page1 .animate .p1-t1{
+	-webkit-animation: fadeInUp 1s ease 0.4s 1 both;
+			animation: fadeInUp 1s ease 0.4s 1 both;
+}
+.page1 .animate .left-hand{
+	-webkit-animation: moveUp 1s ease 0.7s 1 both;
+			animation: moveUp 1s ease 0.7s 1 both;
+}
+.page1 .animate .right-hand{
+	-webkit-animation: moveDown 1s ease 0.7s 1 both;
+			animation: moveDown 1s ease 0.7s 1 both;
+}
+.page1 .animate .p1-fu{
+	-webkit-animation: rotateOne 1s ease 0.7s 1 both;
+			animation: rotateOne 1s ease 0.7s 1 both;
+}
+
+.mahuanghou{
+	position:absolute;
+	top: 150px;
+	left: 12px;
+	width: 159px;
+	height: 208px;
+	background: url(http://mat1.gtimg.com/news/2015/songfu/img/p2-p1.png) no-repeat;
+	background-size: 159px 208px;
+}
+.zhuyuanzhang{
+	position:absolute;
+	top: 43px;
+	right: 20px;
+	width: 132px;
+	height: 218px;
+	background: url(http://mat1.gtimg.com/news/2015/songfu/img/p2-p2.png) no-repeat;
+	background-size: 132px 218px;
+}
+.p2-t1{
+	position: absolute;
+	width: 125px;
+	height: 55px;
+	top: 300px;
+	left: 50%;
+	margin-left: 25px;
+}
+
+.page2 .animate .mahuanghou{
+	-webkit-animation: fadeInLeft 1s ease 0.7s 1 both;
+			animation: fadeInLeft 1s ease 0.7s 1 both;
+}
+.page2 .animate .zhuyuanzhang{
+	-webkit-animation: fadeInRight 1s ease 0.7s 1 both;
+			animation: fadeInRight 1s ease 0.7s 1 both;
+}
+.page2 .animate .p2-t1{
+	-webkit-animation: fadeInUp 1s ease 0.7s 1 both;
+			animation: fadeInUp 1s ease 0.7s 1 both;
+}
+
+.p3-b1,.p4-b1,.p5-b1,.p6-b1{
+	position:absolute;
+	width: 290px;
+	height: 284px;
+	top: 80px;
+	left: 50%;
+	margin-left: -145px;
+	background: url(http://mat1.gtimg.com/news/2015/songfu/img/p3-b1.png) no-repeat;
+	background-size: 290px 284px;
+}
+.p3-t1{
+	position: absolute;
+	width: 166px;
+	height: 30px;
+	top: -15px;
+	right: 0;
+}
+.p4-b1{
+	background-image: url(http://mat1.gtimg.com/news/2015/songfu/img/p4-b1.png);
+}
+.p5-b1{
+	background-image: url(http://mat1.gtimg.com/news/2015/songfu/img/p5-b1.png);
+}
+.p6-b1{
+	background-image: url(http://mat1.gtimg.com/news/2015/songfu/img/p6-b1.png);
+}
+.page3 .animate .p3-t1, .page4 .animate .p3-t1,.page5 .animate .p3-t1,.page6 .animate .p3-t1{
+	-webkit-animation: fadeInDown 1s ease 0.7s 1 both;
+			animation: fadeInDown 1s ease 0.7s 1 both;
+}
+.page3 .animate .p3-b1, .page4 .animate .p4-b1, .page5 .animate .p5-b1, .page6 .animate .p6-b1{
+	-webkit-animation: fadeIn 1s ease 0.7s 1 both;
+			animation: fadeIn 1s ease 0.7s 1 both;
+}
+.p5-b1 .zyz{
+	position: absolute;
+	top: 27px;
+	right: -15px;
+	width: 132px;
+	height: 169px;
+	background: url(http://mat1.gtimg.com/news/2015/songfu/img/p5-p1.png) no-repeat;
+	background-size: 132px 169px;
+	opacity:0;
+}
+.p5-b1 .mhh{
+	position: absolute;
+	top: 20px;
+	left: 13px;
+	width: 132px;
+	height: 169px;
+	background: url(http://mat1.gtimg.com/news/2015/songfu/img/p5-p2.png) no-repeat;
+	background-size: 132px 169px;
+}
+.p5-b1 .d-fu{
+	position: absolute;
+	top: 35px;
+	left: 145px;
+	width: 116px;
+	height: 113px;
+	background: url(http://mat1.gtimg.com/news/2015/songfu/img/p5-t1.png) no-repeat;
+	background-size: 116px 113px;
+}
+.page5 .animate .p5-b1 .zyz{
+	-webkit-animation: fadeOutRight 1s ease 1s 1 both;
+			animation: fadeOutRight 1s ease 1s 1 both;
+}
+.page5 .animate .p5-b1 .d-fu{
+	-webkit-animation: moveRight 1s ease 1.2s 1 both;
+			animation: moveRight 1s ease 1.2s 1 both;
+}
+.page5 .animate .p5-b1 .mhh{
+	-webkit-animation: fadeInLeft 1s ease 1.4s 1 both;
+			animation: fadeInLeft 1s ease 1.4s 1 both;
+}
+
+.game .btns{
+	height: 50px;
+	width: 320px;
+	margin: 0 auto;
+}
+.game .panel{
+	margin: 0 auto;
+	width: 320px;
+	height: 347px;
+	background: url(http://mat1.gtimg.com/news/2015/songfu/img/game-bg2.png) no-repeat top center;
+	background-size: cover;
+}
+.game .press-btn{position:absolute;width:50%;text-align:center; height:70px;top:0;  }
+.game .press-btn:nth-child(1){left:0}
+.game .press-btn:nth-child(2){right:0}
+.game .press-btn span{
+	display:inline-block;
+	width: 80px;
+	height: 50px;
+	background: url(http://mat1.gtimg.com/news/2015/songfu/img/press-btn.png) no-repeat bottom center;
+	background-size: 80px 50px;
+	padding-top:5px;
+}
+.game .press-btn:active span{
+	background-image: url(http://mat1.gtimg.com/news/2015/songfu/img/press-on-btn.png);
+}
+.game .press-on-btn span{
+	display:block;
+	width: 80px;
+	height: 46px;
+	background: url(http://mat1.gtimg.com/news/2015/songfu/img/press-btn.png) no-repeat bottom center;
+	background-size: 80px 46px;
+}
+.game .tips{
+	padding-top: 5px;
+	text-align: center;
+	font: 12px/20px "微软雅黑";
+}
+
+.overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
+@-webkit-keyframes fadeOutUp {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(0px);
+        		transform: translateY(0px);
+    }
+    50% {
+        opacity: 0.3;
+        -webkit-transform: translateY(-20px);
+        		transform: translateY(-20px);
+    }
+}
+@keyframes fadeOutUp {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(0px);
+        		transform: translateY(0px);
+    }
+    50% {
+        opacity: 0.3;
+        -webkit-transform: translateY(-20px);
+         		transform: translateY(-20px);
+    }
+}
+
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+@-webkit-keyframes moveRight {
+  0% {
+    -webkit-transform: translate3d(-130px, 0, 0);
+            transform: translate3d(-130px, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    -webkit-transform: translate3d(-130px, 0, 0);
+            transform: translate3d(-130px, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+@-webkit-keyframes moveUp {
+  0% {
+    -webkit-transform: translate3d(0, 60px, 0);
+            transform: translate3d(0, 60px, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    -webkit-transform: translate3d(0, 60px, 0);
+            transform: translate3d(0, 60px, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+@-webkit-keyframes moveDown {
+  0% {
+    -webkit-transform: translate3d(0, -60px, 0);
+            transform: translate3d(0, -60px, 0);
+  }
+
+  100% {
+	-webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes moveDown {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+  	-webkit-transform: translate3d(0, 60px, 0);
+        transform: translate3d(0, 60px, 0);
+  }
+}
+
+
+@-webkit-keyframes rotateOne {
+  0% {
+    -webkit-transform-origin: center;
+            transform-origin: center;
+    -webkit-transform: rotate3d(0, 0, 1, 0);
+    		transform: rotate3d(0, 0, 1, 0);
+  }
+
+  100% {
+    -webkit-transform-origin: center;
+            transform-origin: center;
+    -webkit-transform: rotate3d(0, 0, 1, 180deg);
+            transform: rotate3d(0, 0, 1, 180deg);
+  }
+}
+
+@keyframes rotateOne {
+  0% {
+    -webkit-transform-origin: center;
+            transform-origin: center;
+    -webkit-transform: rotate3d(0, 0, 1, 0);
+            transform: rotate3d(0, 0, 1, 0);
+  }
+  100% {
+    -webkit-transform-origin: center;
+            transform-origin: center;
+    -webkit-transform: rotate3d(0, 0, 1, 180deg);
+            transform: rotate3d(0, 0, 1, 180deg);
+  }
+}
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@-webkit-keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+}
+
+ /* 2015-02-02 shenshenadd*/
+
+.tipsBox{position:absolute;width:100%;height:100%;top:0;left:0;display:none;}
+.tipsBox .shadow{position:absolute;width:100%;height:100%;top:0;left:0;background:rgba(0,0,0,.75);}
+.yxgz .pictips{position:absolute;width:237px;height:328px;top:50%;left:50%;margin:-164px 0 0 -118px;background:url(http://mat1.gtimg.com/news/2015/songfu/img/yxsm.png) no-repeat ;background-size:cover;}
+.gotogame{position:absolute;width:110px;height:38px;bottom:20px;left:50%;margin-left:-55px;display:block;text-indent:-999em;overflow:hidden; }
+.yxjs .pictips{position:absolute;width:251px;height:284px;background:url(http://mat1.gtimg.com/news/2015/songfu/img/yxend.png) no-repeat ;background-size:cover;top:50%;left:50%;margin:-142px 0 0 -126px;}
+.pictips .gold{padding-top:90px;line-height:46px;font-size:1.875em;font-family:arial; }
+.pictips .gold span:nth-child(1){display:inline-block;width:65px;margin-right:45px; text-align:center;}
+.pictips .gold span:nth-child(2){display:inline-block;width:52px;text-align:center;}
+.pictips .goldall{padding-top:5px;line-height:46px;font-size:1.875em;font-family:arial;margin-left:125px;}
+.yxjs .ft{position:absolute;width:97%;height:35px;left:0;bottom:35px;text-align:center; } 
+.yxjs .ft a{display:inline-block;width:90px;height:35px;margin:0 2px;line-height:10000px;overflow:hidden;   }
+.yxjs .pictips .close{width:50px;height:40px;position:absolute;top:0px;right:0px;   }
+.game .panel{position:relative;overflow:hidden;  }
+.game .domAdBox {position:absolute;width:100%;height:999999px; bottom:500px;left:0; -webkit-transition: all 0.2s linear;}
+.game .domAdBox b{position:absolute;}
+.game .domAdBox .dom0{width:57px;height:52px;background:url(http://mat1.gtimg.com/news/2015/songfu/img/zhengf.png) no-repeat ;background-size:cover;}
+.game .domAdBox .dom1{width:55px;height:50px;background:url(http://mat1.gtimg.com/news/2015/songfu/img/daofu.png) no-repeat ;background-size:cover;}
+.game .domAdBox .mypor0{left:50%;margin-left:-115px;}
+.game .domAdBox .mypor1{right:50%;margin-right:-115px;}
+.game .domAdBox .dom3{width:80px;height:22px;background:url(http://mat1.gtimg.com/news/2015/songfu/img/khlogo.png) no-repeat ;background-size:cover;}
+.game .domAdBox .poa0{left:50%;margin-left:-120px;}
+.game .domAdBox .poa1{right:50%;margin-right:-120px;}
+.game .btns{position:absolute;width:100%;bottom:5px;left:0; height:90px;  }
+.goldl{position:absolute;top:-55px;left:25%;margin-left:-40px;width:80px;text-align:center; color:#db5831;font-family:arial;font-size:1.875em;text-shadow:#fff 1px 1px 0;}
+.goldr{position:absolute;top:-55px;right:25%;margin-right:-40px;width:80px;text-align:center; color:#db5831;font-family:arial;font-size:1.875em;text-shadow:#fff 1px 1px 0;}
+.addfu{/* -webkit-animation:pulse 0.3s .1s ease both; */ display:none; }
+@-webkit-keyframes pulse{
+0%{-webkit-transform:scale(1) translateY(0px)}
+50%{-webkit-transform:scale(1.2) translateY(-30px)}
+100%{-webkit-transform:scale(0) translateY(-60px)}
+}
+.game .tips{padding-top:60px;}
+.weixin_layout{display:none; position:fixed;top:0;left:0;bottom:0;width:100%;height:100%;background:url(http://mat1.gtimg.com/joke/and/image/weinxin_share.png) no-repeat right top rgba(0, 0, 0, 0.6);-webkit-background-size:320px 150px;-moz-background-size:320px 150px;-o-background-size:320px 150px;background-size:320px 150px;z-index:999999;}
+.tipsfixed{position:fixed;width:100%;height:25px;top:0;left:0;z-index:10000  }
+.yxgz{display:block;}/*  |xGv00|dd601f53c45bf089249a1b4d53dd9439 */@CHARSET "UTF-8";

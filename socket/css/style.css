@@ -1,0 +1,496 @@
+@charset "utf-8";
+/* CSS Document */
+
+body, p, input, h1, h2, h3, h4, h5, h6, ul, li, dl, dt, dd, form {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    font-family: Helvetica;
+    background-color: #000;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+header, section, footer, img, button {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/*@media all and (orientation: landscape) {*/
+/*#portrait {*/
+/*display: none;*/
+/*}*/
+/*}*/
+
+/*@media all and (orientation: portrait) {*/
+/*#portrait {*/
+/*display: block;*/
+/*}*/
+/*}*/
+
+#loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    background: #000 url(../img/bg-loading.jpg) 0 0 no-repeat;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    z-index: 99999;
+}
+
+#loading .tree {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 28px;
+    color: #fff;
+    text-align: center;
+    width: 152px;
+    margin-left: -76px;
+    height: 424px;
+    margin-top: -212px;
+}
+
+#loading .tree .percent {
+    margin-top: 40px;
+}
+
+.wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.wrap .bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.wrap .bg img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 101%;
+    display: none;
+}
+
+.wrap .bg img.show {
+    display: block;
+}
+
+.end, .p1 {
+    background: url(../img/bg-1.jpg) center center no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 11;
+    background-size: cover;
+    -webkit-background-size: cover;
+}
+
+.end {
+    display: none;
+}
+
+.light {
+    background: url(../img/light-1.png) center center no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    background-size: cover;
+    -webkit-background-size: cover;
+    opacity: 0.3;
+    animation: shan 2s;
+    -webkit-animation: shan 2s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+
+@-webkit-keyframes shan {
+    0% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.4;
+    }
+}
+
+.btn-wrap {
+    text-align: center;
+    position: absolute;
+    bottom: 190px;
+    width: 100%;
+    z-index: 10;
+    -webkit-animation-delay: 8s;
+    animation-delay: 8s;
+}
+
+.btn-wrap .btn {
+    display: inline-block;
+    width: 212px;
+    height: 82px;
+    margin: 0 29px;
+    position: relative;
+}
+
+.btn-wrap .btn-1 {
+    background: url(../img/btn-1.png) 0 0 no-repeat;
+
+}
+
+.btn-wrap .btn-2 {
+    background: url(../img/btn-2.png) 0 0 no-repeat;
+
+}
+
+.logo {
+    background: url(../img/logo.png) 0 0 no-repeat;
+    width: 216px;
+    height: 84px;
+    display: inline-block;
+    margin-top: 40px;
+}
+
+.text1 {
+    background: url(../img/text1.png) 0 0 no-repeat;
+    width: 433px;
+    height: 233px;
+    position: absolute;
+    left: 50%;
+    margin-left: -216px;
+    bottom: 580px;
+    z-index: 10;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+}
+
+.textwrap {
+    /*background: url(../img/text2.png) 0 0 no-repeat;*/
+    width: 100%;
+    height: auto;
+    position: absolute;
+left: 0;
+    bottom: 580px;
+    z-index: 10;
+}
+
+.textwrap div {
+    width: 100%;
+    height: 40px;
+    margin: 20px auto;
+    animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+}
+
+.textwrap .text2-1 {
+    background: url(../img/text2-1.png) center center no-repeat;
+    animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+}
+.textwrap .text2-2 {
+    background: url(../img/text2-2.png) center center no-repeat;
+    animation-delay: 2.5s;
+    -webkit-animation-delay: 2.5s;
+}
+
+.textwrap .text2-3 {
+    background: url(../img/text2-3.png) center center no-repeat;
+    animation-delay: 4.5s;
+    -webkit-animation-delay: 4.5s;
+}
+
+.textwrap .text2-4 {
+    background: url(../img/text2-4.png) center center no-repeat;
+    animation-delay: 6.5s;
+    -webkit-animation-delay: 6.5s;
+}
+
+.textwrap .text1-1 {
+    background: url(../img/text1-1.png) center center no-repeat;
+    animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+}
+.textwrap .text1-2 {
+    background: url(../img/text1-2.png) center center no-repeat;
+    animation-delay: 2.5s;
+    -webkit-animation-delay: 2.5s;
+}
+
+.textwrap .text1-3 {
+    background: url(../img/text1-3.png) center center no-repeat;
+    animation-delay: 4.5s;
+    -webkit-animation-delay: 4.5s;
+}
+
+.textwrap .text1-4 {
+    background: url(../img/text1-4.png) center center no-repeat;
+    animation-delay: 6.5s;
+    -webkit-animation-delay: 6.5s;
+}
+
+
+
+
+
+
+.p1 .title {
+    background: url(../img/a1title.png) center center no-repeat;
+    width: 309px;
+    height: 185px;
+    position: absolute;
+    left: 50%;
+    margin-left: -154px;
+    bottom: 752px;
+}
+
+.music {
+    background: url(../img/music.png) 0 0 no-repeat;
+    width: 71px;
+    height: 78px;
+    position: absolute;
+    right: 56px;
+    top: 16px;
+    z-index: 99;
+}
+
+.music.on {
+    background-position: 0 -78px;
+}
+
+.code-wrap {
+    background: url(../img/code-wrap.png) 0 0 no-repeat;
+    width: 273px;
+    height: 365px;
+    position: absolute;
+    left: 50%;
+    margin-left: -136px;
+    bottom: 300px;
+}
+
+.p1 .title2 {
+    background: url(../img/a2title.png) 0 0 no-repeat;
+    width: 332px;
+    height: 240px;
+    position: absolute;
+    left: 50%;
+    margin-left: -166px;
+    bottom: 700px;
+    animation-duration: 3s;
+    -webkit-animation-duration: 3s;
+}
+
+.choice {
+    position: absolute;
+    width: 100%;
+    height: 335px;
+    z-index: 10;
+    bottom: 300px;
+}
+
+.choice div {
+    position: absolute;
+}
+
+.choice .m1 {
+    left: 82px;
+    top: 0;
+    z-index: 1;
+}
+
+.choice .m2 {
+    right: 80px;
+    top: 0;
+}
+
+.choice .m3 {
+    right: 80px;
+    bottom: 0;
+}
+
+.share {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    display: none;
+}
+
+.share img {
+    position: absolute;
+    right: 100px;
+    top: 20px;
+}
+
+.p2 {
+    background: url(../img/bg-1.jpg) center center no-repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    z-index: 11;
+
+}
+
+.p2 .letter {
+    background: url(../img/letter.png) 0 0 no-repeat;
+    width: 450px;
+    height: 210px;
+    position: absolute;
+    left: 50%;
+    margin-left: -225px;
+    top: 35%;
+    margin-top: -105px;
+    -webkit-transform: translate3d(530px,-80px,0) ;
+    animation: goin 0.5s;
+    -webkit-animation: goin 0.5s;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    -webkit-animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes goin {
+    0% {-webkit-transform: translate3d(530px,-80px,0)}
+    100% {-webkit-transform: translate3d(0,0,0) }
+}
+.code-wrap canvas {
+    width: 255px;
+    height: 255px;
+    margin: 9px;
+}
+
+.replay {
+    background: url(../img/replay.png) 0 0 no-repeat;
+    width: 230px;
+    height: 96px;
+    position: absolute;
+    left: 50%;
+    margin-left: -115px;
+    top: -150px;
+}
+
+.a_t {
+    width: 386px;
+    height: 76px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-left: -193px;
+    z-index: 9999999;
+    display: none;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+.animate_text2 {
+    background: url(../img/u2text.png) 0 0 no-repeat;
+}
+
+.animate_text1 {
+    background: url(../img/u1text.png) 0 0 no-repeat;
+}
+
+.code-text {
+    position: absolute;
+    background: url(../img/code-text.png) 0 0 no-repeat;
+    width: 309px;
+    height: 78px;
+    left: 50%;
+    margin-left: -154px;
+    bottom: 0;
+}
+
+
+
+
+.huge {
+    position: absolute;
+    background: url(../img/huge.png) 0 0 no-repeat;
+    height: 130px;
+    width: 86px;
+    left: -53px;
+    /*left: 50%;*/
+    bottom: 0;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    transform-origin: bottom;
+    -webkit-transform-origin: bottom;
+}
+
+.hugeran {
+    animation-name: huge;
+    -webkit-animation-name: huge;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode:  forwards;
+}
+
+@-webkit-keyframes huge {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    25% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+    }
+    50%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    75% {
+        -webkit-transform: rotate(10deg);
+        transform: rotate(10deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+}
+
+
+
+
+
+

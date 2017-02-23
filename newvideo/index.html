@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>娘娘叫你来做操！</title>
+<!--    <meta http-equiv="Access-Control-Allow-Origin" content="*.yuesai.com">-->
+    <meta name="x5-fullscreen" content="false">
+    <meta name="x5-orientation" content="portrait">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body ontouchmove="event.preventDefault()">
+    <input type="hidden" id='appid'/>
+    <input type="hidden" id='timestamp'/>
+    <input type="hidden" id='noncestr'/>
+    <input type="hidden" id='signature'/>
+
+    <div class="loading_load">
+        <div class="masker"></div>
+        <div class="info"></div>
+        <div class="num-box">
+            <img src="images/1.png" alt="">
+            <img src="images/2.png" alt="">
+            <img src="images/3.png" alt="">
+            <img src="images/4.png" alt="">
+            <img src="images/5.png" alt="">
+            <img src="images/6.png" alt="">
+            <img src="images/7.png" alt="">
+            <img src="images/8.png" alt="">
+            <img src="images/9.png" alt="">
+            <img src="images/10.png" alt="">
+        </div>
+        <div class="start"></div>
+    </div>
+    <div class="index2">
+        <div class="m-end">
+            <div class="end-btn">
+                <a href="http://campaign.yuesai.com/cordyceps" class="home"></a>
+                <a href="javascript:" class="share"></a>
+            </div>
+            <div class="end-layer">
+                <div class="people">
+                    <div class="body"></div>
+                    <div class="hand"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container main">
+        <div class="section def s1">
+            <video class="video-box" id="video" data-index="1" x-webkit-airplay="true" webkit-playsinline="true" preload="auto" src="images/yuxi2.mp4" poster="images/loading-bg.jpg"></video>
+        </div>
+        <div class="zhe_nav"></div>
+    </div>
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/touch.js"></script>
+    <script src="js/jweixin-1.0.0.js"></script>
+
+
+
+<script>
+    document.body.onselectstart = document.body.oncontextmenu = function() {
+        return false;
+    };
+
+    var Cwidth = document.documentElement.clientWidth;
+    var Cheight = document.documentElement.clientHeight;
+
+
+    $("#video").css("width", Cwidth).css("height", Cheight);
+
+    var video = document.getElementById("video");
+
+    video.addEventListener("canplay", myFunction);
+
+    function myFunction(e) {
+
+        $(".play").show();
+        $(".load").hide();
+
+    }
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+
+//    if(isAndroid){
+
+        touch.on(".loading_load", "touchstart", function() {
+            video.play();
+            video.loops();
+            $(".loading_load,.play_btn").hide();
+        })
+//    }else{
+//        setTimeout(function(){
+//
+//            video.play();
+//            video.loops();
+//
+//            $(".loading_load").hide();
+//
+//        },100)
+//    }
+    //        var sc=1040/Cheight;
+    //
+    //        $("video").css("transform","scale("+sc+",1)").css("-webkit-transform","scale("+sc+",1)");
+
+
+    function doProhibit() {
+        if (window.Event)
+            document.captureEvents(Event.MOUSEUP);
+
+        function nocontextmenu() {
+            event.cancelBubble = true
+            event.returnvalue = false;
+            return false;
+        }
+
+        function norightclick(e) {
+            if (window.Event) {
+                if (e.which == 2 || e.which == 3)
+                    return false;
+            } else if (event.button == 2 || event.button == 3) {
+                event.cancelBubble = true
+                event.returnvalue = false;
+                return false;
+            }
+        }
+        document.oncontextmenu = nocontextmenu; // for IE5+
+        document.onmousedown = norightclick; //
+    }
+    touch.on(".rep_btn", "tap", function() {
+        location = "index.php";
+    })
+    touch.on(".fx_btn", "tap", function() {
+        $(".fx").show();
+    })
+    touch.on(".fx", "tap", function() {
+        $(".fx").hide();
+    })
+    video.addEventListener('ended', endPlay);
+    function endPlay() {
+        $(".container").hide();
+        $(".index2").addClass('show');
+    }
+    HTMLMediaElement.prototype.loops = function() {
+        var self = this;
+        var v_time = this.currentTime;
+
+        if (v_time > 83) {
+            pae = false;
+            $(".container").hide();
+            $(".index2,.end_jpg").addClass('show');
+        }
+        duration = this.duration;
+        var pae = true;
+        // If we are at the end of the video stop
+        if (this.currentTime >= duration) {
+            pae = false;
+        }
+        requestAnimationFrame(function() {
+            if (pae) {
+                self.loops();
+            }
+        });
+    }
+</script>
+<script>
+    setTimeout(function(){
+        $('.loading_load .info').addClass('show');
+    },50);
+    $('.share').click(function(){
+        $('.end-layer').addClass('show');
+    });
+    $('.end-layer').click(function(){
+        $(this).removeClass('show');
+    })
+    var i=0;
+    var sid = setInterval(function(){
+        $('.num-box img').eq(i).show().siblings().hide();
+        i++;
+        if (i >= 10){
+            clearInterval(sid);
+            $('.loading_load .start').addClass('show');
+            $('.num-box').fadeOut();
+        }
+    },400);
+
+</script>
+</body>
+</html>
